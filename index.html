@@ -1,0 +1,2706 @@
+<!DOCTYPE html>
+<html class="dark" id="html-root" lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   CYBER ART COMMISSIONS // TERMINAL v2.0
+  </title>
+
+  <audio autoplay loop>
+    <source src="praise-god-planetboom-official-music-video-xyhkfl3h8fw_GE5ugEN2.mp3">
+</audio>
+  <!--Estilos con Tailwind-->
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <!--Fuentes-->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&amp;family=Inter:wght@300;400;600;800&amp;family=VT323&amp;display=swap" rel="stylesheet"/>
+  <!--Iconos-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="icon" type="image/png" href="icono.png">
+  <!--jQuery para las demostraciones-->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js">
+  </script>
+  <script>
+   tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-space': '#0A0012',
+                        'cyber-card': '#120524',
+                        'neon-magenta': '#FF007F',
+                        'electric-cyan': '#00F0FF',
+                        'acid-yellow': '#FFE600',
+                        'neon-green': '#00FF66',
+                        'terminal-dark': '#07020d'
+                    },
+                    fontFamily: {
+                        mono: ['Fira Code', 'monospace'],
+                        vt: ['VT323', 'monospace'],
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glow-magenta': '0 0 15px rgba(255, 0, 127, 0.5), 0 0 30px rgba(255, 0, 127, 0.2)',
+                        'glow-cyan': '0 0 15px rgba(0, 240, 255, 0.5), 0 0 30px rgba(0, 240, 255, 0.2)',
+                        'glow-yellow': '0 0 15px rgba(255, 230, 0, 0.5)',
+                        'glow-green': '0 0 15px rgba(0, 255, 102, 0.5)'
+                    }
+                }
+            }
+        }
+  </script>
+  <style>
+   /* Scanline Overlay Effect */
+        .scanline {
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0, 0, 0, 0.3) 50%,
+                rgba(0, 0, 0, 0.3)
+            );
+            background-size: 100% 4px;
+        }
+
+        /* Glassmorphism */
+        .cyber-glass {
+            background: rgba(18, 5, 36, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0012;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FF007F;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00F0FF;
+        }
+
+        /* Neon Text Utilities */
+        .text-glow-magenta {
+            text-shadow: 0 0 8px #FF007F, 0 0 20px rgba(255, 0, 127, 0.6);
+        }
+        .text-glow-cyan {
+            text-shadow: 0 0 8px #00F0FF, 0 0 20px rgba(0, 240, 255, 0.6);
+        }
+        .text-glow-yellow {
+            text-shadow: 0 0 8px #FFE600, 0 0 20px rgba(255, 230, 0, 0.6);
+        }
+
+        /* Blinking Cursor */
+        .blink {
+            animation: blinker 1s cubic-bezier(0.5, 0, 1, 1) infinite;
+        }
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+
+        /* Code Block Styling */
+        pre code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        .code-keyword { color: #FF007F; font-weight: bold; }
+        .code-function { color: #00F0FF; }
+        .code-string { color: #FFE600; }
+        .code-comment { color: #6b7280; font-style: italic; }
+        .code-number { color: #00FF66; }
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <script>
+   tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-space': '#0A0012',
+                        'cyber-card': '#120524',
+                        'neon-magenta': '#FF007F',
+                        'electric-cyan': '#00F0FF',
+                        'acid-yellow': '#FFE600',
+                        'neon-green': '#00FF66',
+                        'terminal-dark': '#07020d'
+                    },
+                    fontFamily: {
+                        mono: ['Fira Code', 'monospace'],
+                        vt: ['VT323', 'monospace'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+  </script>
+  <style>
+   :root {
+            color-scheme: dark;
+            --page-bg: #0A0012;
+            --surface-bg: rgba(18, 5, 36, 0.88);
+            --surface-solid: #120524;
+            --text-main: #e5e7eb;
+            --text-muted: #9ca3af;
+            --border-color: rgba(0, 240, 255, 0.24);
+            --input-bg: #07020d;
+        }
+        html.light-mode { color-scheme: light; }
+        html.light-mode, body.light-mode {
+            --page-bg: #f1f5f9;
+            --surface-bg: rgba(255, 255, 255, 0.94);
+            --surface-solid: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #475569;
+            --border-color: rgba(8, 145, 178, 0.35);
+            --input-bg: #ffffff;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--page-bg);
+            color: var(--text-main);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .cyber-glass { background: var(--surface-bg) !important; border-color: var(--border-color) !important; }
+        .light-mode body { background-color: var(--page-bg); }
+        .light-mode .cyber-glass { color: var(--text-main) !important; }
+        .light-mode header { background: rgba(255, 255, 255, 0.94) !important; }
+        .light-mode .bg-deep-space, .light-mode .bg-terminal-dark, .light-mode .bg-cyber-card { background-color: var(--surface-solid) !important; }
+        .light-mode .text-white { color: #0f172a !important; }
+        .light-mode .text-gray-200, .light-mode .text-gray-300 { color: #334155 !important; }
+        .light-mode .text-gray-400, .light-mode .text-gray-500 { color: #475569 !important; }
+        .light-mode input:not([type="checkbox"]), .light-mode select, .light-mode textarea { background-color: var(--input-bg) !important; color: #0f172a !important; border-color: #cbd5e1 !important; }
+        .light-mode .bg-deep-space\/60, .light-mode .bg-deep-space\/80 { background-color: #f8fafc !important; }
+        .light-mode .border-gray-700, .light-mode .border-gray-800 { border-color: #cbd5e1 !important; }
+        .light-mode .scanline { opacity: 0.08; }
+        .theme-toggle { min-width: 76px; }
+
+        .scanline {
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2));
+            background-size: 100% 4px;
+        }
+        .cyber-glass {
+            background: rgba(18, 5, 36, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #0A0012; }
+        ::-webkit-scrollbar-thumb { background: #FF007F; border-radius: 4px; }
+</style>
+ </head>
+ <body class="bg-deep-space text-gray-200 font-sans min-h-screen flex flex-col selection:bg-neon-magenta selection:text-white relative overflow-x-hidden">
+  <!--Fondo retro-->
+  <div class="pointer-events-none fixed inset-0 z-50 scanline opacity-30">
+  </div>
+  <div class="pointer-events-none fixed inset-0 z-0 opacity-10 bg-[radial-gradient(#00F0FF_1px,transparent_1px)] [background-size:24px_24px]">
+  </div>
+  <!--Barra de navegación-->
+  <header class="sticky top-0 z-40 cyber-glass border-b border-electric-cyan/30 shadow-lg">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap items-center justify-between min-h-16 gap-y-2 py-2">
+     <!--Logo y nombre-->
+     <div class="flex items-center gap-3 cursor-pointer order-1" onclick="switchTab('inicio')">
+      <div class="w-10 h-10 rounded-lg border border-electric-cyan bg-deep-space flex items-center justify-center shadow-glow-cyan text-electric-cyan">
+       <i class="fa-solid fa-terminal text-xl">
+       </i>
+      </div>
+      <div>
+       <span class="font-mono font-bold text-lg tracking-wider text-white flex items-center gap-2">
+        CYBER
+        <span class="text-neon-magenta">
+         ART
+        </span>
+       </span>
+       <span class="text-xs font-vt text-electric-cyan tracking-widest block -mt-1">
+        v2.0 // COMMISSIONS
+       </span>
+      </div>
+     </div>
+     <!--Menú para escritorio-->
+     <nav class="order-3 w-full flex items-center gap-1 font-mono text-[10px] overflow-x-auto whitespace-nowrap pb-1">
+      <button class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-electric-cyan border-b-2 border-electric-cyan bg-electric-cyan/10" data-i18n="nav_home" id="nav-inicio" onclick="switchTab('inicio')">
+       <i class="fa-solid fa-house">
+       </i>
+       01. INICIO + PORTAFOLIO
+      </button>
+      <button class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-gray-400 hover:text-white hover:bg-white/5" data-i18n="nav_styles" id="nav-modos" onclick="switchTab('modos')">
+       <i class="fa-solid fa-palette">
+       </i>
+       02. ESTILOS
+      </button>
+      <button class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-gray-400 hover:text-white hover:bg-white/5" data-i18n="nav_js" id="nav-js" onclick="switchTab('js')">
+       <i class="fa-brands fa-js text-yellow-400">
+       </i>
+       03. JS VANILLA
+      </button>
+      <button class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-gray-400 hover:text-white hover:bg-white/5" data-i18n="nav_jquery" id="nav-jquery" onclick="switchTab('jquery')">
+       <i class="fa-solid fa-code">
+       </i>
+       04. JQUERY
+      </button>
+      <button class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-gray-400 hover:text-white hover:bg-white/5" data-i18n="nav_json" id="nav-json" onclick="switchTab('json')">
+       <i class="fa-solid fa-database">
+       </i>
+       05. JSON
+      </button>
+      <button class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-gray-400 hover:text-white hover:bg-white/5" data-i18n="nav_hosting" id="nav-hosting" onclick="switchTab('hosting')">
+       <i class="fa-solid fa-server">
+       </i>
+       06. HOSTING
+      </button>
+      <button class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-acid-yellow border border-acid-yellow/40 hover:bg-acid-yellow/10" data-i18n="nav_quiz" id="nav-quiz" onclick="switchTab('quiz')">
+       <i class="fa-solid fa-graduation-cap">
+       </i>
+       07. CUESTIONARIO
+      </button>
+      <button class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-gray-400 hover:text-white hover:bg-white/5" data-i18n="nav_quote" id="nav-cotizador" onclick="switchTab('cotizador')">
+       <i class="fa-solid fa-calculator">
+       </i>
+       08. COTIZADOR
+      </button>
+      <button class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-gray-400 hover:text-white hover:bg-white/5" data-i18n="nav_tools" id="nav-herramientas" onclick="switchTab('herramientas')">
+       <i class="fa-brands fa-google">
+       </i>
+       09. GOOGLE TOOLS
+      </button>
+     </nav>
+      <button class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-gray-400 hover:text-white hover:bg-white/5" data-i18n="nav_contact" id="nav-contact" onclick="switchTab('contact')">
+       <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+       CONTACTO
+      </button>
+     <!--Control de sonido-->
+     <div class="flex items-center gap-3 order-2">
+      <button type="button" id="language-toggle" class="px-3 py-1.5 rounded border border-neon-magenta/50 bg-cyber-card text-neon-magenta font-mono text-xs hover:border-neon-magenta transition" aria-label="Cambiar idioma">EN</button>
+      <button type="button" id="theme-toggle" class="theme-toggle px-3 py-1.5 rounded border border-electric-cyan/40 bg-cyber-card text-electric-cyan font-mono text-xs hover:border-electric-cyan flex items-center justify-center gap-2 transition" onclick="toggleTheme()" aria-label="Activar modo claro" title="Cambiar tema"><i class="fa-solid fa-sun" id="theme-icon" aria-hidden="true"></i><span id="theme-text">LIGHT</span></button>
+       <button class="px-3 py-1.5 rounded border border-electric-cyan/40 bg-cyber-card text-electric-cyan font-mono text-xs hover:border-electric-cyan flex items-center gap-2 transition" id="sound-btn" onclick="toggleAudio()" title="Activar/Desactivar Sonidos Retro">
+       <i class="fa-solid fa-volume-high" id="sound-icon">
+       </i>
+       <span class="hidden sm:inline">
+        SFX: ON
+       </span>
+      </button>
+      <!--Botón del menú móvil-->
+      <button class="xl:hidden text-electric-cyan p-2 text-xl focus:outline-none" onclick="toggleMobileMenu()">
+       <i class="fa-solid fa-bars">
+       </i>
+      </button>
+     </div>
+    </div>
+   </div>
+   <!--Menú para móviles-->
+   <div class="hidden xl:hidden border-t border-electric-cyan/30 bg-deep-space/95 px-4 pt-2 pb-4 space-y-1 font-mono text-sm" id="mobile-menu">
+    <button class="block w-full text-left px-3 py-2 rounded text-electric-cyan bg-electric-cyan/10" onclick="switchTab('inicio'); toggleMobileMenu()">
+     01. INICIO / MARCA
+    </button>
+    <button class="block w-full text-left px-3 py-2 rounded text-gray-300 hover:text-white hover:bg-white/5" onclick="switchTab('modos'); toggleMobileMenu()">
+     02. ESTILOS Y COTIZADOR
+    </button>
+    <button class="block w-full text-left px-3 py-2 rounded text-gray-300 hover:text-white hover:bg-white/5" onclick="switchTab('js'); toggleMobileMenu()">
+     03. JAVASCRIPT VANILLA
+    </button>
+    <button class="block w-full text-left px-3 py-2 rounded text-gray-300 hover:text-white hover:bg-white/5" onclick="switchTab('jquery'); toggleMobileMenu()">
+     04. JQUERY DOCS
+    </button>
+    <button class="block w-full text-left px-3 py-2 rounded text-gray-300 hover:text-white hover:bg-white/5" onclick="switchTab('json'); toggleMobileMenu()">
+     05. JSON SPEC
+    </button>
+    <button class="block w-full text-left px-3 py-2 rounded text-gray-300 hover:text-white hover:bg-white/5" onclick="switchTab('hosting'); toggleMobileMenu()">
+     06. HOSTING Y DOMINIOS
+    </button>
+    <button class="block w-full text-left px-3 py-2 rounded text-acid-yellow bg-acid-yellow/10" onclick="switchTab('quiz'); toggleMobileMenu()">
+     07. CUESTIONARIO WEB
+    </button>
+   </div>
+  </header>
+  <!--Contenido principal-->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+   <!--Sección 01: INICIO Inicio y marca-->
+   <section class="tab-content space-y-12" id="tab-inicio">
+    <!--Presentación principal-->
+    <div class="cyber-glass rounded-2xl p-6 sm:p-10 border border-electric-cyan/40 relative overflow-hidden shadow-glow-cyan/20">
+     <div class="absolute -right-20 -top-20 w-80 h-80 bg-neon-magenta/20 rounded-full blur-3xl pointer-events-none">
+     </div>
+     <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-electric-cyan/20 rounded-full blur-3xl pointer-events-none">
+     </div>
+     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-7 space-y-6">
+       <!--Estado de los encargos-->
+       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neon-green/50 bg-neon-green/10 text-neon-green font-mono text-xs font-semibold">
+        <span class="w-2 h-2 rounded-full bg-neon-green animate-ping">
+        </span>
+        [ STATUS: COMMISSIONS OPEN // SYSTEM READY ]
+       </div>
+       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase font-sans">
+        CYBER ART
+        <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-magenta via-electric-cyan to-acid-yellow text-glow-magenta">
+         COMMISSIONS
+        </span>
+       </h1>
+       <p class="text-gray-300 text-lg leading-relaxed max-w-2xl">
+        Transformando ideas, avatares y personajes en
+        <strong class="text-electric-cyan">
+         arte digital vibrante
+        </strong>
+        con est&eacute;tica retro-futurista Synthwave/Cyberpunk. Explora nuestros modos gr&aacute;ficos o consulta el centro de documentaci&oacute;n web.
+       </p>
+       <div class="flex flex-wrap gap-4 pt-2">
+        <button class="px-6 py-3 rounded-lg bg-neon-magenta text-white font-mono font-bold hover:bg-neon-magenta/80 transition shadow-glow-magenta flex items-center gap-2" onclick="switchTab('modos')">
+         <i class="fa-solid fa-bolt">
+         </i>
+         SOLICITAR COMISI&Oacute;N
+        </button>
+        <button class="px-6 py-3 rounded-lg border border-electric-cyan/60 text-electric-cyan hover:bg-electric-cyan/10 font-mono font-semibold transition flex items-center gap-2" onclick="switchTab('js')">
+         <i class="fa-solid fa-book">
+         </i>
+         INVESTIGACI&Oacute;N TECH
+        </button>
+       </div>
+      </div>
+      <!--Logo animado en SVG-->
+      <div class="lg:col-span-5 flex justify-center">
+       <div class="relative w-64 h-64 sm:w-80 sm:h-80 flex items-center justify-center p-4">
+        <!--Emblema en SVG-->
+        <svg class="w-full h-full drop-shadow-[0_0_20px_rgba(0,240,255,0.4)]" fill="none" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+         <circle class="animate-spin" cx="100" cy="100" r="90" stroke="#00F0FF" stroke-dasharray="8 4" stroke-width="2" style="animation-duration: 20s;">
+         </circle>
+         <polygon fill="rgba(255,0,127,0.05)" points="100,20 170,160 30,160" stroke="#FF007F" stroke-width="3">
+         </polygon>
+         <polygon fill="rgba(0,240,255,0.05)" points="100,180 30,40 170,40" stroke="#00F0FF" stroke-width="2">
+         </polygon>
+         <circle cx="100" cy="100" fill="#0A0012" r="35" stroke="#FFE600" stroke-width="3">
+         </circle>
+         <path d="M85 90 L115 90 L100 115 Z" fill="#FF007F">
+         </path>
+         <text fill="#00F0FF" font-family="VT323" font-size="22" text-anchor="middle" x="100" y="104">
+          CYBER
+         </text>
+        </svg>
+       </div>
+      </div>
+     </div>
+    </div>
+    <!--Identidad y público-->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+     <div class="cyber-glass p-6 rounded-xl border-l-4 border-neon-magenta hover:border-electric-cyan transition">
+      <div class="text-neon-magenta text-3xl mb-3">
+       <i class="fa-solid fa-fingerprint">
+       </i>
+      </div>
+      <h3 class="font-mono font-bold text-lg text-white mb-2">
+       Propuesta de Valor
+      </h3>
+      <p class="text-sm text-gray-300 leading-relaxed">
+       Ilustraciones con iluminaci&oacute;n ne&oacute;n de alto impacto, acabados cel-shading de precisi&oacute;n y conceptos cyberpunk que hacen resaltar cualquier perfil, canal o proyecto indie.
+      </p>
+     </div>
+     <div class="cyber-glass p-6 rounded-xl border-l-4 border-electric-cyan hover:border-acid-yellow transition">
+      <div class="text-electric-cyan text-3xl mb-3">
+       <i class="fa-solid fa-users">
+       </i>
+      </div>
+      <h3 class="font-mono font-bold text-lg text-white mb-2">
+       P&uacute;blico Objetivo
+      </h3>
+      <p class="text-sm text-gray-300 leading-relaxed">
+       Dise&ntilde;ado para Streamers (Twitch/YouTube), Content Creators, VTubers, Gamers, Desarrolladores de Videojuegos Indie y fans del anime retro-futurista.
+      </p>
+     </div>
+     <div class="cyber-glass p-6 rounded-xl border-l-4 border-acid-yellow hover:border-neon-magenta transition">
+      <div class="text-acid-yellow text-3xl mb-3">
+       <i class="fa-solid fa-shield-halved">
+       </i>
+      </div>
+      <h3 class="font-mono font-bold text-lg text-white mb-2">
+       Garant&iacute;a de Calidad
+      </h3>
+      <p class="text-sm text-gray-300 leading-relaxed">
+       Flujo de trabajo transparente con entrega en ultra alta resoluci&oacute;n (4K/300DPI), archivos PNG transparentes y hasta 2 rondas de revisi&oacute;n en etapa de boceto.
+      </p>
+     </div>
+    </div>
+    <!--Paleta de colores-->
+    <div class="cyber-glass rounded-xl p-6 sm:p-8 border border-electric-cyan/30">
+     <div class="flex items-center gap-3 mb-6">
+      <i class="fa-solid fa-swatchbook text-electric-cyan text-2xl">
+      </i>
+      <div>
+       <h2 class="text-2xl font-mono font-bold text-white">
+        SYSTEM COLOR PALETTE
+       </h2>
+       <p class="text-xs font-mono text-gray-400">
+        Justificaci&oacute;n gr&aacute;fica basada en la psicolog&iacute;a del color cyberpunk
+       </p>
+      </div>
+     </div>
+     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!--Color Deep Space-->
+      <div class="bg-deep-space p-4 rounded-lg border border-gray-800 space-y-3">
+       <div class="h-16 rounded bg-[#0A0012] border border-gray-700 flex items-center justify-center font-mono font-bold text-gray-400">
+        #0A0012
+       </div>
+       <div>
+        <h4 class="font-mono font-bold text-white">
+         Deep Space
+        </h4>
+        <p class="text-xs text-electric-cyan">
+         Fondo Infinito Dark
+        </p>
+       </div>
+       <p class="text-xs text-gray-400">
+        Representa el misterio, el cosmos nocturno y proporciona el contraste perfecto sin fatigar la vista para que resalten las luces ne&oacute;n.
+       </p>
+      </div>
+      <!--Color Neon Magenta-->
+      <div class="bg-deep-space p-4 rounded-lg border border-gray-800 space-y-3">
+       <div class="h-16 rounded bg-[#FF007F] shadow-glow-magenta flex items-center justify-center font-mono font-bold text-white">
+        #FF007F
+       </div>
+       <div>
+        <h4 class="font-mono font-bold text-white">
+         Neon Magenta
+        </h4>
+        <p class="text-xs text-neon-magenta">
+         Energ&iacute;a &amp; Sintetizadores
+        </p>
+       </div>
+       <p class="text-xs text-gray-400">
+        Aporta pasi&oacute;n, energ&iacute;a juvenil, dinamismo synthwave y la vibra nost&aacute;lgica de las luces de ne&oacute;n ochenteras.
+       </p>
+      </div>
+      <!--Color Electric Cyan-->
+      <div class="bg-deep-space p-4 rounded-lg border border-gray-800 space-y-3">
+       <div class="h-16 rounded bg-[#00F0FF] shadow-glow-cyan flex items-center justify-center font-mono font-bold text-black">
+        #00F0FF
+       </div>
+       <div>
+        <h4 class="font-mono font-bold text-white">
+         Electric Cyan
+        </h4>
+        <p class="text-xs text-electric-cyan">
+         Interfaz Cibern&eacute;tica
+        </p>
+       </div>
+       <p class="text-xs text-gray-400">
+        Simboliza alta tecnolog&iacute;a, claridad digital, circuitos futuristas y la precisi&oacute;n en los detalles cibern&eacute;ticos.
+       </p>
+      </div>
+      <!--Color Acid Yellow-->
+      <div class="bg-deep-space p-4 rounded-lg border border-gray-800 space-y-3">
+       <div class="h-16 rounded bg-[#FFE600] shadow-glow-yellow flex items-center justify-center font-mono font-bold text-black">
+        #FFE600
+       </div>
+       <div>
+        <h4 class="font-mono font-bold text-white">
+         Acid Yellow
+        </h4>
+        <p class="text-xs text-acid-yellow">
+         Alertas &amp; Contrastes
+        </p>
+       </div>
+       <p class="text-xs text-gray-400">
+        Utilizado estrat&eacute;gicamente para generar alertas, focos de atenci&oacute;n inmediata y acentos de m&aacute;xima luminosidad.
+       </p>
+      </div>
+     </div>
+    </div>
+    <!--Reglas y proceso de pedido-->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+     <!-- TOS -->
+     <div class="cyber-glass p-6 rounded-xl border border-neon-magenta/30 space-y-4">
+      <h3 class="text-xl font-mono font-bold text-white flex items-center gap-2">
+       <i class="fa-solid fa-scroll text-neon-magenta">
+       </i>
+       Reglas &amp; T&eacute;rminos (TOS)
+      </h3>
+      <div class="space-y-3 text-sm">
+       <div>
+        <span class="text-neon-green font-mono font-bold">
+         <i class="fa-solid fa-check">
+         </i>
+         LO QUE S&Iacute; DIBUJO:
+        </span>
+        <p class="text-gray-300 ml-5">
+         Personajes Originales (OCs), Fanart, Avatares, Retratos Estilizados, Est&eacute;tica Cyberpunk/Sci-Fi y Mecha ligero.
+        </p>
+       </div>
+       <div>
+        <span class="text-red-400 font-mono font-bold">
+         <i class="fa-solid fa-xmark">
+         </i>
+         LO QUE NO DIBUJO:
+        </span>
+        <p class="text-gray-300 ml-5">
+         Contenido expl&iacute;cito (NSFW expl&iacute;cito), discursos de odio o tem&aacute;ticas altamente sensibles/ofensivas.
+        </p>
+       </div>
+       <div>
+        <span class="text-electric-cyan font-mono font-bold">
+         <i class="fa-solid fa-credit-card">
+         </i>
+         PAGO Y REVISIONES:
+        </span>
+        <p class="text-gray-300 ml-5">
+         Pago previo del 50% para iniciar y 50% antes de la entrega final en alta resoluci&oacute;n. Incluye 2 revisiones gratis en fase de boceto.
+        </p>
+       </div>
+      </div>
+     </div>
+     <!--Proceso de pedido-->
+     <div class="cyber-glass p-6 rounded-xl border border-electric-cyan/30 space-y-4">
+      <h3 class="text-xl font-mono font-bold text-white flex items-center gap-2">
+       <i class="fa-solid fa-list-check text-electric-cyan">
+       </i>
+       Proceso de Pedido (Paso a Paso)
+      </h3>
+      <div class="space-y-3">
+       <div class="flex items-start gap-3 p-2 rounded bg-deep-space/60 border border-gray-800">
+        <span class="w-6 h-6 rounded bg-neon-magenta font-mono text-xs font-bold flex items-center justify-center text-white shrink-0">
+         1
+        </span>
+        <div class="text-xs">
+         <strong class="text-white block font-mono">
+          Elige tu Modo y Formato:
+         </strong>
+         Select Rubber Hose, Anime Cl&aacute;sico o Cyber Glow con el nivel de cuerpo deseado.
+        </div>
+       </div>
+       <div class="flex items-start gap-3 p-2 rounded bg-deep-space/60 border border-gray-800">
+        <span class="w-6 h-6 rounded bg-electric-cyan font-mono text-xs font-bold flex items-center justify-center text-black shrink-0">
+         2
+        </span>
+        <div class="text-xs">
+         <strong class="text-white block font-mono">
+          Env&iacute;a tus Referencias:
+         </strong>
+         Genera el Ticket en el Cotizador y adjunta im&aacute;genes o descripci&oacute;n de tu personaje.
+        </div>
+       </div>
+       <div class="flex items-start gap-3 p-2 rounded bg-deep-space/60 border border-gray-800">
+        <span class="w-6 h-6 rounded bg-acid-yellow font-mono text-xs font-bold flex items-center justify-center text-black shrink-0">
+         3
+        </span>
+        <div class="text-xs">
+         <strong class="text-white block font-mono">
+          Revisa y Aprueba Boceto:
+         </strong>
+         Se te env&iacute;a el boceto inicial para ajustar pose, expresiones y elementos.
+        </div>
+       </div>
+       <div class="flex items-start gap-3 p-2 rounded bg-deep-space/60 border border-gray-800">
+        <span class="w-6 h-6 rounded bg-neon-green font-mono text-xs font-bold flex items-center justify-center text-black shrink-0">
+         4
+        </span>
+        <div class="text-xs">
+         <strong class="text-white block font-mono">
+          Entrega Final HD:
+         </strong>
+         Recibes tu obra terminada en PNG 4K con y sin fondo para tus redes.
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <section class="space-y-10" id="inicio-portafolio">
+     <div class="cyber-glass rounded-2xl p-6 sm:p-10 border border-electric-cyan/40 shadow-xl relative overflow-hidden">
+      <div class="max-w-3xl space-y-6">
+       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neon-green/50 bg-neon-green/10 text-neon-green font-mono text-xs font-semibold">
+        <span class="w-2 h-2 rounded-full bg-neon-green animate-ping">
+        </span>
+        <span data-i18n="hero_badge">
+         STATUS: COMISIONES ABIERTAS &amp; DISE&Ntilde;O WEB
+        </span>
+       </div>
+       <h1 class="text-4xl sm:text-6xl font-black tracking-tight uppercase font-sans text-white" data-i18n="hero_title">
+        DISE&Ntilde;O GR&Aacute;FICO &amp;
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-magenta via-electric-cyan to-acid-yellow">
+         ARTE DIGITAL
+        </span>
+       </h1>
+       <p class="text-gray-300 text-lg leading-relaxed" data-i18n="hero_desc">
+        Especialistas en estilo anime, cel-shading, rubber hose y branding con est&eacute;tica synthwave. Mejorando la interfaz gr&aacute;fica de proyectos con tecnolog&iacute;as web modernas y Bootstrap.
+       </p>
+       <div class="flex flex-wrap gap-4">
+        <button class="px-6 py-3 rounded-lg bg-neon-magenta text-white font-mono font-bold hover:bg-neon-magenta/80 transition shadow-lg" data-i18n="btn_view_projects" onclick="document.getElementById('inicio-proyectos').scrollIntoView({behavior: 'smooth'});">
+         VER PROYECTOS MEJORADOS
+        </button>
+        <button class="px-6 py-3 rounded-lg border border-acid-yellow text-acid-yellow font-mono font-semibold hover:bg-acid-yellow/10 transition" data-i18n="btn_google_tools" onclick="switchTab('herramientas')">
+         VER 15 HERRAMIENTAS GOOGLE
+        </button>
+       </div>
+      </div>
+     </div>
+     <!-- BOOTSTRAP CAROUSEL USING CROSSFADE -->
+     <div class="cyber-glass rounded-2xl p-6 border border-electric-cyan/35 space-y-4">
+      <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+       <i class="fa-solid fa-images text-electric-cyan">
+       </i>
+       <span data-i18n="carousel_title">
+        DESTACADOS VISUALES // CARROUSEL CROSSFADE
+       </span>
+      </h2>
+      <p class="text-xs text-gray-400 font-mono" data-i18n="carousel_subtitle">
+       Carrusel de Bootstrap 5 con animaci&oacute;n suave de fundido cruzado (crossfade).
+      </p>
+      <div class="carousel slide carousel-fade rounded-xl overflow-hidden shadow-2xl border border-electric-cyan/30" data-bs-interval="4000" data-bs-ride="carousel" id="projectCarousel">
+       <div class="carousel-inner">
+        <div class="carousel-item active">
+         <div class="bg-gradient-to-r from-purple-900 via-indigo-900 to-black h-80 sm:h-96 flex flex-col items-center justify-center p-6 text-center space-y-3">
+          <span class="px-3 py-1 rounded bg-neon-magenta text-white font-mono text-xs font-bold">
+           ESTILO 01
+          </span>
+          <h3 class="text-3xl sm:text-4xl font-black text-white font-mono">
+           ANIME CEL-SHADING
+          </h3>
+          <p class="text-sm text-gray-300 max-w-lg">
+           Ilustraciones digitales de alto impacto con sombreado limpio y paletas de colores vibrantes.
+          </p>
+         </div>
+        </div>
+        <div class="carousel-item">
+         <div class="bg-gradient-to-r from-blue-900 via-cyan-900 to-black h-80 sm:h-96 flex flex-col items-center justify-center p-6 text-center space-y-3">
+          <span class="px-3 py-1 rounded bg-electric-cyan text-black font-mono text-xs font-bold">
+           ESTILO 02
+          </span>
+          <h3 class="text-3xl sm:text-4xl font-black text-white font-mono">
+           RUBBER HOSE VINTAGE
+          </h3>
+          <p class="text-sm text-gray-300 max-w-lg">
+           Est&eacute;tica de animaci&oacute;n cl&aacute;sica de los a&ntilde;os 30 adaptada a proyectos web modernos e indies.
+          </p>
+         </div>
+        </div>
+        <div class="carousel-item">
+         <div class="bg-gradient-to-r from-amber-900 via-yellow-900 to-black h-80 sm:h-96 flex flex-col items-center justify-center p-6 text-center space-y-3">
+          <span class="px-3 py-1 rounded bg-acid-yellow text-black font-mono text-xs font-bold">
+           ESTILO 03
+          </span>
+          <h3 class="text-3xl sm:text-4xl font-black text-white font-mono">
+           SYNTHWAVE BRANDING
+          </h3>
+          <p class="text-sm text-gray-300 max-w-lg">
+           Identidades visuales completas con grillas retro-futuristas, tipograf&iacute;as y paletas espaciales.
+          </p>
+         </div>
+        </div>
+       </div>
+       <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#projectCarousel" type="button">
+        <span aria-hidden="true" class="carousel-control-prev-icon bg-black/50 p-3 rounded-full">
+        </span>
+        <span class="visually-hidden">
+         Anterior
+        </span>
+       </button>
+       <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#projectCarousel" type="button">
+        <span aria-hidden="true" class="carousel-control-next-icon bg-black/50 p-3 rounded-full">
+        </span>
+        <span class="visually-hidden">
+         Siguiente
+        </span>
+       </button>
+      </div>
+     </div>
+    </section>
+    <section class="space-y-8" id="inicio-proyectos">
+     <div class="text-center space-y-2">
+      <h2 class="text-3xl font-mono font-bold text-white" data-i18n="projects_header">
+       INTERFAZ GR&Aacute;FICA MEJORADA DE PROYECTOS
+      </h2>
+      <p class="text-gray-400 text-sm" data-i18n="projects_subheader">
+       Proyectos optimizados con Bootstrap 5, Bootstrap Cards, Grid System y animaciones JS suaves.
+      </p>
+     </div>
+     <div class="row g-4">
+      <div class="col-md-4">
+       <div class="cyber-glass h-100 rounded-xl overflow-hidden border border-electric-cyan/40 shadow-lg p-4 d-flex flex-column justify-between">
+        <div>
+         <span class="badge bg-info text-dark font-mono mb-2">
+          UI / UX Web
+         </span>
+         <h3 class="h4 font-mono font-bold text-white mb-2">
+          Cyber Terminal Portfolio
+         </h3>
+         <p class="text-sm text-gray-300">
+          Redise&ntilde;o completo de interfaz con soporte responsive, Bootstrap grid y modo claro/oscuro.
+         </p>
+        </div>
+        <button class="mt-4 btn btn-outline-info btn-sm font-mono" data-i18n="btn_inspect" onclick="alert('Proyecto optimizado con Bootstrap &amp; JS')">
+         Inspeccionar Proyecto
+        </button>
+       </div>
+      </div>
+      <div class="col-md-4">
+       <div class="cyber-glass h-100 rounded-xl overflow-hidden border border-neon-magenta/40 shadow-lg p-4 d-flex flex-column justify-between">
+        <div>
+         <span class="badge bg-danger font-mono mb-2">
+          Character Art
+         </span>
+         <h3 class="h4 font-mono font-bold text-white mb-2">
+          Anime Cel-Shading Sheets
+         </h3>
+         <p class="text-sm text-gray-300">
+          Hojas de dise&ntilde;o de personajes con expresiones, poses din&aacute;micas y acabados retro 90s.
+         </p>
+        </div>
+        <button class="mt-4 btn btn-outline-danger btn-sm font-mono" data-i18n="btn_inspect" onclick="alert('Hoja de personajes en alta resoluci&oacute;n')">
+         Inspeccionar Proyecto
+        </button>
+       </div>
+      </div>
+      <div class="col-md-4">
+       <div class="cyber-glass h-100 rounded-xl overflow-hidden border border-acid-yellow/40 shadow-lg p-4 d-flex flex-column justify-between">
+        <div>
+         <span class="badge bg-warning text-dark font-mono mb-2">
+          Branding Indie
+         </span>
+         <h3 class="h4 font-mono font-bold text-white mb-2">
+          Rubber Hose Stickers Pack
+         </h3>
+         <p class="text-sm text-gray-300">
+          Colecci&oacute;n de stickers y avatares estilo caricatura cl&aacute;sica para canales de streaming y redes.
+         </p>
+        </div>
+        <button class="mt-4 btn btn-outline-warning btn-sm font-mono" data-i18n="btn_inspect" onclick="alert('Pack de stickers vectoriales cargado')">
+         Inspeccionar Proyecto
+        </button>
+       </div>
+      </div>
+     </div>
+    </section>
+   </section>
+   <!--Sección 02: Estilos y cotizador-->
+   <section class="tab-content hidden space-y-12" id="tab-modos">
+    <div class="text-center space-y-3">
+     <h2 class="text-3xl sm:text-4xl font-mono font-bold text-white">
+      MODOS DE ILUSTRACI&Oacute;N
+     </h2>
+     <p class="text-gray-400 max-w-xl mx-auto text-sm">
+      Selecciona el acabado que mejor represente la personalidad de tu proyecto o personaje.
+     </p>
+    </div>
+    <!--Tarjetas de estilos-->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+     <!-- Mode 01 -->
+     <div class="cyber-glass rounded-xl overflow-hidden border border-electric-cyan/30 hover:border-electric-cyan transition group flex flex-col justify-between">
+      <div class="p-6 space-y-4">
+       <div class="flex justify-between items-center">
+        <span class="px-2.5 py-1 rounded bg-electric-cyan/10 border border-electric-cyan text-electric-cyan font-mono text-xs font-bold">
+         MODE 01
+        </span>
+        <span class="text-xs text-gray-400 font-mono">
+         Desde $25 USD
+        </span>
+       </div>
+       <h3 class="text-2xl font-mono font-bold text-white group-hover:text-electric-cyan transition">
+        Rubber Hose
+       </h3>
+       <p class="text-xs text-gray-300 leading-relaxed">
+        Estilo caricatura cl&aacute;sica de los a&ntilde;os 30 con trazos fluidos, divertidos y un toque retro vintage. Ideal para avatares en redes, stickers y emotes interactivos.
+       </p>
+       <ul class="text-xs text-gray-400 space-y-1 font-mono">
+        <li>
+         <i class="fa-solid fa-check text-electric-cyan">
+         </i>
+         Trazos extremadamente din&aacute;micos
+        </li>
+        <li>
+         <i class="fa-solid fa-check text-electric-cyan">
+         </i>
+         Paleta de color simplificada o monocroma
+        </li>
+        <li>
+         <i class="fa-solid fa-check text-electric-cyan">
+         </i>
+         Excelente para stickers
+        </li>
+       </ul>
+      </div>
+      <div class="p-4 bg-deep-space/80 border-t border-gray-800 text-center">
+       <button class="w-full py-2 rounded bg-electric-cyan/20 border border-electric-cyan text-electric-cyan font-mono text-xs hover:bg-electric-cyan hover:text-black transition" onclick="selectModeInCalc('rubber')">
+        SELECCIONAR EN COTIZADOR
+       </button>
+      </div>
+     </div>
+     <!-- Mode 02 -->
+     <div class="cyber-glass rounded-xl overflow-hidden border border-neon-magenta/30 hover:border-neon-magenta transition group flex flex-col justify-between">
+      <div class="p-6 space-y-4">
+       <div class="flex justify-between items-center">
+        <span class="px-2.5 py-1 rounded bg-neon-magenta/10 border border-neon-magenta text-neon-magenta font-mono text-xs font-bold">
+         MODE 02
+        </span>
+        <span class="text-xs text-gray-400 font-mono">
+         Desde $40 USD
+        </span>
+       </div>
+       <h3 class="text-2xl font-mono font-bold text-white group-hover:text-neon-magenta transition">
+        Anime Cl&aacute;sico (90s)
+       </h3>
+       <p class="text-xs text-gray-300 leading-relaxed">
+        Trazos definidos con sombreado limpio tradicional estilo Cel-Shading retro de los a&ntilde;os 90. Perfecto para hojas de personaje (Character Sheets) y foto de perfil.
+       </p>
+       <ul class="text-xs text-gray-400 space-y-1 font-mono">
+        <li>
+         <i class="fa-solid fa-check text-neon-magenta">
+         </i>
+         Estilo nost&aacute;lgico retro-anime
+        </li>
+        <li>
+         <i class="fa-solid fa-check text-neon-magenta">
+         </i>
+         Lineart n&iacute;tido y sombras s&oacute;lidas
+        </li>
+        <li>
+         <i class="fa-solid fa-check text-neon-magenta">
+         </i>
+         Ideal para Character Sheets
+        </li>
+       </ul>
+      </div>
+      <div class="p-4 bg-deep-space/80 border-t border-gray-800 text-center">
+       <button class="w-full py-2 rounded bg-neon-magenta/20 border border-neon-magenta text-neon-magenta font-mono text-xs hover:bg-neon-magenta hover:text-white transition" onclick="selectModeInCalc('anime')">
+        SELECCIONAR EN COTIZADOR
+       </button>
+      </div>
+     </div>
+     <!-- Mode 03 -->
+     <div class="cyber-glass rounded-xl overflow-hidden border border-acid-yellow/30 hover:border-acid-yellow transition group flex flex-col justify-between">
+      <div class="p-6 space-y-4">
+       <div class="flex justify-between items-center">
+        <span class="px-2.5 py-1 rounded bg-acid-yellow/10 border border-acid-yellow text-acid-yellow font-mono text-xs font-bold">
+         MODE 03
+        </span>
+        <span class="text-xs text-gray-400 font-mono">
+         Desde $60 USD
+        </span>
+       </div>
+       <h3 class="text-2xl font-mono font-bold text-white group-hover:text-acid-yellow transition">
+        Cyber Glow
+       </h3>
+       <p class="text-xs text-gray-300 leading-relaxed">
+        Estilo avanzado con alto contraste, luces ne&oacute;n intensas, efectos de distorsi&oacute;n crom&aacute;tica y filtros futuristas. Ilustraciones premium de alto impacto visual.
+       </p>
+       <ul class="text-xs text-gray-400 space-y-1 font-mono">
+        <li>
+         <i class="fa-solid fa-check text-acid-yellow">
+         </i>
+         Efectos de iluminaci&oacute;n hologr&aacute;fica
+        </li>
+        <li>
+         <i class="fa-solid fa-check text-acid-yellow">
+         </i>
+         Sombreado complejo y brillo ne&oacute;n
+        </li>
+        <li>
+         <i class="fa-solid fa-check text-acid-yellow">
+         </i>
+         M&aacute;ximo detalle y resoluci&oacute;n
+        </li>
+       </ul>
+      </div>
+      <div class="p-4 bg-deep-space/80 border-t border-gray-800 text-center">
+       <button class="w-full py-2 rounded bg-acid-yellow/20 border border-acid-yellow text-acid-yellow font-mono text-xs hover:bg-acid-yellow hover:text-black transition" onclick="selectModeInCalc('cyber')">
+        SELECCIONAR EN COTIZADOR
+       </button>
+      </div>
+     </div>
+    </div>
+    <!--Cotizador y ticket-->
+    <div class="cyber-glass rounded-2xl p-6 sm:p-8 border border-electric-cyan/40 shadow-glow-cyan/10" id="calculator-section">
+     <div class="flex items-center gap-3 mb-6">
+      <i class="fa-solid fa-calculator text-electric-cyan text-2xl">
+      </i>
+      <div>
+       <h3 class="text-2xl font-mono font-bold text-white">
+        COTIZADOR INTERACTIVO &amp; TICKET
+       </h3>
+       <p class="text-xs font-mono text-gray-400">
+        Calcula tu presupuesto estimado y genera tu orden de encargo en tiempo real
+       </p>
+      </div>
+     </div>
+     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!--Opciones del formulario-->
+      <div class="lg:col-span-7 space-y-6">
+       <!-- 1. Select Mode -->
+       <div>
+        <label class="block font-mono text-xs text-electric-cyan mb-2">
+         1. SELECCIONA EL MODO DE ARTE:
+        </label>
+        <div class="grid grid-cols-3 gap-2 font-mono text-xs">
+         <button class="calc-mode-btn p-3 rounded border border-electric-cyan bg-electric-cyan/20 text-white font-bold" id="btn-mode-rubber" onclick="updateCalc('mode', 'rubber')" type="button">
+          Rubber Hose
+         </button>
+         <button class="calc-mode-btn p-3 rounded border border-gray-700 bg-deep-space text-gray-400" id="btn-mode-anime" onclick="updateCalc('mode', 'anime')" type="button">
+          Anime 90s
+         </button>
+         <button class="calc-mode-btn p-3 rounded border border-gray-700 bg-deep-space text-gray-400" id="btn-mode-cyber" onclick="updateCalc('mode', 'cyber')" type="button">
+          Cyber Glow
+         </button>
+        </div>
+       </div>
+       <!-- 2. Select Coverage / Format -->
+       <div>
+        <label class="block font-mono text-xs text-electric-cyan mb-2">
+         2. NIVEL DE COBERURA (FORMATO):
+        </label>
+        <div class="grid grid-cols-3 gap-2 font-mono text-xs">
+         <button class="calc-format-btn p-3 rounded border border-neon-magenta bg-neon-magenta/20 text-white font-bold" id="btn-format-headshot" onclick="updateCalc('format', 'headshot')" type="button">
+          Headshot / Avatar
+         </button>
+         <button class="calc-format-btn p-3 rounded border border-gray-700 bg-deep-space text-gray-400" id="btn-format-half" onclick="updateCalc('format', 'half')" type="button">
+          Half Body
+         </button>
+         <button class="calc-format-btn p-3 rounded border border-gray-700 bg-deep-space text-gray-400" id="btn-format-full" onclick="updateCalc('format', 'full')" type="button">
+          Full Body
+         </button>
+        </div>
+       </div>
+       <!-- 3. Extras Checkboxes -->
+       <div>
+        <label class="block font-mono text-xs text-electric-cyan mb-2">
+         3. ADICIONALES &amp; EXTRAS:
+        </label>
+        <div class="space-y-2 font-mono text-xs">
+         <label class="flex items-center gap-3 p-3 rounded bg-deep-space border border-gray-800 cursor-pointer hover:border-gray-700">
+          <input class="w-4 h-4 accent-neon-magenta" id="extra-bg" onchange="calculateTotal()" type="checkbox"/>
+          <span class="text-gray-200">
+           Fondo Detallado Synthwave / Ne&oacute;n (+$25 USD)
+          </span>
+         </label>
+         <label class="flex items-center gap-3 p-3 rounded bg-deep-space border border-gray-800 cursor-pointer hover:border-gray-700">
+          <input class="w-4 h-4 accent-neon-magenta" id="extra-char" onchange="calculateTotal()" type="checkbox"/>
+          <span class="text-gray-200">
+           Personaje Adicional en la escena (+70% del valor base)
+          </span>
+         </label>
+         <label class="flex items-center gap-3 p-3 rounded bg-deep-space border border-gray-800 cursor-pointer hover:border-gray-700">
+          <input class="w-4 h-4 accent-neon-magenta" id="extra-commercial" onchange="calculateTotal()" type="checkbox"/>
+          <span class="text-gray-200">
+           Licencia Comercial / Merchandising (+$40 USD)
+          </span>
+         </label>
+        </div>
+       </div>
+       <!--Campo de contacto-->
+       <div>
+        <label class="block font-mono text-xs text-electric-cyan mb-1">
+         NICKNAME / CONTACTO (OPCIONAL):
+        </label>
+        <input class="w-full bg-deep-space border border-gray-700 rounded p-2.5 text-xs font-mono text-white focus:border-electric-cyan outline-none" id="client-name" oninput="updateTicketText()" placeholder="Ej: CyberRunner#1337" type="text"/>
+       </div>
+      </div>
+      <!--Vista previa del ticket-->
+      <div class="lg:col-span-5 flex flex-col justify-between bg-terminal-dark p-5 rounded-xl border border-electric-cyan/40 font-mono text-xs space-y-4">
+       <div>
+        <div class="flex justify-between items-center border-b border-dashed border-gray-700 pb-2 mb-3">
+         <span class="text-electric-cyan font-bold">
+          [ TICKET DE ENCARGOS ]
+         </span>
+         <span class="text-gray-500" id="ticket-id">
+          #CY-0001
+         </span>
+        </div>
+        <pre class="text-gray-300 leading-relaxed whitespace-pre-wrap font-vt text-sm text-green-400" id="ticket-preview">
+[ CYBER ART TICKET ]
+&bull; Cliente: Anon
+&bull; Modo: Rubber Hose
+&bull; Cobertura: Headshot
+&bull; Extras: Ninguno
+&bull; Total Estimado: $25 USD
+&bull; Estado: Esperando Confirmaci&oacute;n
+                            </pre>
+       </div>
+       <div class="pt-4 border-t border-dashed border-gray-700 space-y-3">
+        <div class="flex justify-between items-center text-base font-bold text-white">
+         <span>
+          TOTAL ESTIMADO:
+         </span>
+         <span class="text-2xl text-acid-yellow text-glow-yellow" id="total-price">
+          $25 USD
+         </span>
+        </div>
+        <button class="w-full py-3 rounded bg-neon-magenta hover:bg-neon-magenta/80 text-white font-bold transition flex items-center justify-center gap-2 shadow-glow-magenta" onclick="copyTicket()">
+         <i class="fa-solid fa-copy">
+         </i>
+         COPIAR TICKET PARA DISCORD / EMAIL
+        </button>
+        <div class="hidden text-center text-neon-green text-xs" id="copy-notification">
+         <i class="fa-solid fa-circle-check">
+         </i>
+         &iexcl;Ticket copiado al portapapeles!
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!--Sección 03: Investigación de JavaScript-->
+   <section class="tab-content hidden space-y-10" id="tab-js">
+    <div class="cyber-glass p-6 sm:p-8 rounded-xl border border-yellow-400/30 space-y-6">
+     <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded bg-yellow-400/20 border border-yellow-400 flex items-center justify-center text-yellow-400 text-3xl font-bold">
+       <i class="fa-brands fa-js">
+       </i>
+      </div>
+      <div>
+       <h2 class="text-2xl sm:text-3xl font-mono font-bold text-white">
+        JavaScript (JS Vanilla)
+       </h2>
+       <p class="text-xs font-mono text-gray-400">
+        El lenguaje de programaci&oacute;n est&aacute;ndar del desarrollo web cliente
+       </p>
+      </div>
+     </div>
+     <div class="space-y-4 text-sm text-gray-300 leading-relaxed">
+      <h3 class="text-lg font-mono font-bold text-electric-cyan">
+       &iquest;Qu&eacute; es JavaScript y para qu&eacute; se usa?
+      </h3>
+      <p>
+       <strong>
+        JavaScript (JS Vanilla)
+       </strong>
+       es un lenguaje de programaci&oacute;n interpretado, orientado a objetos y de alto nivel. Se ejecuta directamente en el navegador del cliente sin necesidad de librer&iacute;as externas. Es el n&uacute;cleo din&aacute;mico de la Web moderna.
+      </p>
+      <!--Diferencia entre HTML, CSS y JS-->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+       <div class="p-4 rounded bg-deep-space border border-red-500/30">
+        <h4 class="font-mono font-bold text-red-400 mb-1">
+         <i class="fa-code fa-solid">
+         </i>
+         HTML (Estructura)
+        </h4>
+        <p class="text-xs text-gray-400">
+         Define el esqueleto, los elementos gr&aacute;ficos y la sem&aacute;ntica del documento (botones, capas, textos).
+        </p>
+       </div>
+       <div class="p-4 rounded bg-deep-space border border-blue-500/30">
+        <h4 class="font-mono font-bold text-blue-400 mb-1">
+         <i class="fa-paintbrush fa-solid">
+         </i>
+         CSS (Estilo)
+        </h4>
+        <p class="text-xs text-gray-400">
+         Controla la presentaci&oacute;n visual, colores ne&oacute;n, dise&ntilde;os adaptativos, fuentes y animaciones est&eacute;ticas.
+        </p>
+       </div>
+       <div class="p-4 rounded bg-deep-space border border-yellow-400/30">
+        <h4 class="font-mono font-bold text-yellow-400 mb-1">
+         <i class="fa-bolt fa-solid">
+         </i>
+         JS (Comportamiento)
+        </h4>
+        <p class="text-xs text-gray-400">
+         Agrega interactividad din&aacute;mica, c&aacute;lculo de tarifas, manejo de eventos y l&oacute;gica del terminal.
+        </p>
+       </div>
+      </div>
+      <!--Conceptos principales-->
+      <h3 class="text-lg font-mono font-bold text-electric-cyan pt-2">
+       Conceptos Clave de JavaScript
+      </h3>
+      <ul class="list-disc list-inside space-y-2 text-xs font-mono text-gray-300">
+       <li>
+        <strong class="text-white">
+         Variables:
+        </strong>
+        Espacios de memoria declarados mediante
+        <code class="text-neon-magenta">
+         let
+        </code>
+        (reasignable) o
+        <code class="text-electric-cyan">
+         const
+        </code>
+        (constante inmutable).
+       </li>
+       <li>
+        <strong class="text-white">
+         Funciones:
+        </strong>
+        Bloques de c&oacute;digo reutilizables (
+        <code class="text-acid-yellow">
+         function miFuncion() {}
+        </code>
+        o flecha
+        <code class="text-acid-yellow">
+         () =&gt; {}
+        </code>
+        ) que ejecutan una tarea al ser invocados.
+       </li>
+       <li>
+        <strong class="text-white">
+         Eventos:
+        </strong>
+        Interceptores de acciones del usuario como
+        <code class="text-neon-green">
+         click
+        </code>
+        ,
+        <code class="text-neon-green">
+         hover/mouseenter
+        </code>
+        , o
+        <code class="text-neon-green">
+         input
+        </code>
+        .
+       </li>
+      </ul>
+     </div>
+     <!--Ejemplo y demostración-->
+     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-4">
+      <!--Ejemplo de código-->
+      <div class="bg-terminal-dark p-4 rounded-lg border border-gray-800 space-y-2">
+       <span class="text-xs font-mono text-gray-500 block border-b border-gray-800 pb-1">
+        // Ejemplo de C&oacute;digo JS Vanilla
+       </span>
+       <pre class="text-xs overflow-x-auto"><code><span class="code-comment">// Declaraci&oacute;n de variables y selector</span>
+<span class="code-keyword">const</span> btn = document.<span class="code-function">getElementById</span>(<span class="code-string">'glow-btn'</span>);
+<span class="code-keyword">let</span> clickCount = <span class="code-number">0</span>;
+
+<span class="code-comment">// Listener de Evento Click</span>
+btn.<span class="code-function">addEventListener</span>(<span class="code-string">'click'</span>, <span class="code-keyword">function</span>() {
+    clickCount++;
+    <span class="code-keyword">const</span> display = document.<span class="code-function">getElementById</span>(<span class="code-string">'count-out'</span>);
+    display.textContent = <span class="code-string">`Cargas Ne&oacute;n: <span class="code-number">${clickCount}</span>`</span>;
+});</code></pre>
+      </div>
+      <!--Demostración-->
+      <div class="cyber-glass p-6 rounded-lg border border-electric-cyan/40 flex flex-col justify-center items-center text-center space-y-4">
+       <h4 class="font-mono text-xs text-electric-cyan font-bold">
+        [ DEMO EN VIVO - JS VANILLA ]
+       </h4>
+       <div class="text-2xl font-mono text-acid-yellow text-glow-yellow" id="js-demo-counter">
+        Cargas Ne&oacute;n: 0
+       </div>
+       <button class="px-5 py-2.5 rounded bg-electric-cyan text-black font-mono font-bold text-xs hover:bg-electric-cyan/80 transition" id="js-demo-btn" onclick="runJsDemo()">
+        ACTIVAR PULSO DE ENERG&Iacute;A
+       </button>
+      </div>
+     </div>
+     <!--Fuentes consultadas-->
+     <div class="border-t border-gray-800 pt-4 text-xs text-gray-400 font-mono">
+      <strong class="text-gray-300">
+       Fuentes &amp; Bibliograf&iacute;a:
+      </strong>
+      <a class="text-electric-cyan hover:underline ml-2" href="https://developer.mozilla.org/es/docs/Web/JavaScript" rel="noopener" target="_blank">
+       MDN Web Docs JS
+      </a>
+      |
+      <a class="text-electric-cyan hover:underline ml-2" href="https://www.w3schools.com/js/" rel="noopener" target="_blank">
+       W3Schools JS Tutorial
+      </a>
+     </div>
+    </div>
+   </section>
+   <!--Sección 04: Investigación de jQuery-->
+   <section class="tab-content hidden space-y-10" id="tab-jquery">
+    <div class="cyber-glass p-6 sm:p-8 rounded-xl border border-electric-cyan/30 space-y-6">
+     <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded bg-electric-cyan/20 border border-electric-cyan flex items-center justify-center text-electric-cyan text-3xl font-bold">
+       <i class="fa-solid fa-code">
+       </i>
+      </div>
+      <div>
+       <h2 class="text-2xl sm:text-3xl font-mono font-bold text-white">
+        jQuery
+       </h2>
+       <p class="text-xs font-mono text-gray-400">
+        Librer&iacute;a r&aacute;pida y concisa para la manipulaci&oacute;n del DOM y efectos visuales
+       </p>
+      </div>
+     </div>
+     <div class="space-y-4 text-sm text-gray-300 leading-relaxed">
+      <h3 class="text-lg font-mono font-bold text-electric-cyan">
+       &iquest;Qu&eacute; es jQuery y por qu&eacute; naci&oacute;?
+      </h3>
+      <p>
+       <strong>
+        jQuery
+       </strong>
+       naci&oacute; en 2006 (creada por John Resig) con el lema
+       <em>
+        "Write less, do more"
+       </em>
+       . Surgi&oacute; para resolver las incompatibilidades dram&aacute;ticas entre navegadores de la &eacute;poca (Internet Explorer vs Firefox/Chrome) y simplificar la sintaxis compleja de selecci&oacute;n y manipulaci&oacute;n del DOM en JS Vanilla.
+      </p>
+      <!--Sintaxis básica de jQuery-->
+      <div class="p-4 rounded bg-deep-space border border-electric-cyan/30 font-mono text-xs space-y-2">
+       <span class="text-electric-cyan font-bold block">
+        SINTAXIS B&Aacute;SICA DE JQUERY:
+       </span>
+       <code class="text-white block">
+        $("selector").accion();
+       </code>
+       <p class="text-gray-400 text-xs">
+        El s&iacute;mbolo
+        <code class="text-acid-yellow">
+         $
+        </code>
+        es un alias para la funci&oacute;n jQuery. Selecciona elementos HTML y les aplica m&eacute;todos inmediatamente.
+       </p>
+      </div>
+      <!--Ventajas y desventajas-->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+       <div class="p-4 rounded bg-deep-space border border-neon-green/30 space-y-2">
+        <h4 class="font-mono font-bold text-neon-green text-xs">
+         <i class="fa-circle-plus fa-solid">
+         </i>
+         VENTAJAS DE JQUERY
+        </h4>
+        <ul class="text-xs text-gray-300 space-y-1 list-disc list-inside">
+         <li>
+          Sintaxis sumamente corta y directa.
+         </li>
+         <li>
+          Animaciones predefinidas simples (
+          <code class="text-electric-cyan">
+           fadeIn
+          </code>
+          ,
+          <code class="text-electric-cyan">
+           slideToggle
+          </code>
+          ).
+         </li>
+         <li>
+          Soporte hist&oacute;rico con miles de plugins legados.
+         </li>
+        </ul>
+       </div>
+       <div class="p-4 rounded bg-deep-space border border-red-400/30 space-y-2">
+        <h4 class="font-mono font-bold text-red-400 text-xs">
+         <i class="fa-circle-minus fa-solid">
+         </i>
+         DESVENTAJAS HOY EN D&Iacute;A
+        </h4>
+        <ul class="text-xs text-gray-300 space-y-1 list-disc list-inside">
+         <li>
+          Peso extra innecesario (~30KB) si JS Vanilla ya lo hace nativamente.
+         </li>
+         <li>
+          Rendimiento inferior en iteraciones masivas respecto a
+          <code class="text-electric-cyan">
+           fetch()
+          </code>
+          o
+          <code class="text-electric-cyan">
+           querySelectorAll
+          </code>
+          .
+         </li>
+         <li>
+          Reemplazado en desarrollo moderno por React, Vue y JS ES6+.
+         </li>
+        </ul>
+       </div>
+      </div>
+     </div>
+     <!--Demostración de jQuery-->
+     <div class="cyber-glass p-6 rounded-lg border border-neon-magenta/40 space-y-4">
+      <h4 class="font-mono text-xs text-neon-magenta font-bold">
+       [ DEMO INTERACTIVA EN VIVO - EFECTOS JQUERY ]
+      </h4>
+      <p class="text-xs text-gray-300">
+       Haz clic en los botones para probar animaciones directas ejecutadas con la librer&iacute;a jQuery cargada:
+      </p>
+      <div class="flex flex-wrap gap-2">
+       <button class="px-3 py-2 rounded bg-neon-magenta/20 border border-neon-magenta text-neon-magenta font-mono text-xs hover:bg-neon-magenta hover:text-white transition" id="jq-fade-btn">
+        $.fadeIn() / $.fadeOut()
+       </button>
+       <button class="px-3 py-2 rounded bg-electric-cyan/20 border border-electric-cyan text-electric-cyan font-mono text-xs hover:bg-electric-cyan hover:text-black transition" id="jq-slide-btn">
+        $.slideToggle()
+       </button>
+      </div>
+      <!--Elemento para probar la animación-->
+      <div class="p-6 rounded bg-deep-space border border-acid-yellow text-center space-y-2" id="jq-target-box">
+       <div class="text-acid-yellow font-mono text-sm font-bold">
+        <i class="fa-solid fa-microchip">
+        </i>
+        COMPONENTE CIBERN&Eacute;TICO MOSTRADO
+       </div>
+       <p class="text-xs text-gray-400">
+        Esta caja reacciona en tiempo real a los m&eacute;todos de animaci&oacute;n jQuery interceptados.
+       </p>
+      </div>
+     </div>
+     <!--Comparación entre JavaScript y jQuery-->
+     <div class="space-y-3">
+      <h3 class="text-lg font-mono font-bold text-electric-cyan">
+       Cuadro Comparativo: JS Vanilla vs. jQuery
+      </h3>
+      <div class="overflow-x-auto">
+       <table class="w-full text-left font-mono text-xs border-collapse">
+        <thead>
+         <tr class="bg-deep-space border-b border-gray-700 text-electric-cyan">
+          <th class="p-3">
+           Acci&oacute;n / Tarea
+          </th>
+          <th class="p-3 text-yellow-400">
+           JavaScript Vanilla (ES6+)
+          </th>
+          <th class="p-3 text-neon-magenta">
+           jQuery
+          </th>
+         </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-800 text-gray-300">
+         <tr>
+          <td class="p-3 font-semibold text-white">
+           Seleccionar Elemento
+          </td>
+          <td class="p-3">
+           <code>
+            document.querySelector('.clase')
+           </code>
+          </td>
+          <td class="p-3">
+           <code>
+            $('.clase')
+           </code>
+          </td>
+         </tr>
+         <tr>
+          <td class="p-3 font-semibold text-white">
+           Evento Click
+          </td>
+          <td class="p-3">
+           <code>
+            elem.addEventListener('click', fn)
+           </code>
+          </td>
+          <td class="p-3">
+           <code>
+            elem.click(fn)
+           </code>
+          </td>
+         </tr>
+         <tr>
+          <td class="p-3 font-semibold text-white">
+           Ocultar Elemento
+          </td>
+          <td class="p-3">
+           <code>
+            elem.style.display = 'none'
+           </code>
+          </td>
+          <td class="p-3">
+           <code>
+            elem.hide()
+           </code>
+          </td>
+         </tr>
+         <tr>
+          <td class="p-3 font-semibold text-white">
+           Petici&oacute;n HTTP / AJAX
+          </td>
+          <td class="p-3">
+           <code>
+            fetch(url).then(res =&gt; res.json())
+           </code>
+          </td>
+          <td class="p-3">
+           <code>
+            $.getJSON(url, callback)
+           </code>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <!--Fuentes consultadas-->
+     <div class="border-t border-gray-800 pt-4 text-xs text-gray-400 font-mono">
+      <strong class="text-gray-300">
+       Fuentes &amp; Bibliograf&iacute;a:
+      </strong>
+      <a class="text-electric-cyan hover:underline ml-2" href="https://jquery.com/" rel="noopener" target="_blank">
+       Official jQuery Docs
+      </a>
+      |
+      <a class="text-electric-cyan hover:underline ml-2" href="https://youmightnotneedjquery.com/" rel="noopener" target="_blank">
+       You Might Not Need jQuery
+      </a>
+     </div>
+    </div>
+   </section>
+   <!--Sección 05: Investigación de JSON-->
+   <section class="tab-content hidden space-y-10" id="tab-json">
+    <div class="cyber-glass p-6 sm:p-8 rounded-xl border border-neon-magenta/30 space-y-6">
+     <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded bg-neon-magenta/20 border border-neon-magenta flex items-center justify-center text-neon-magenta text-3xl font-bold">
+       <i class="fa-solid fa-database">
+       </i>
+      </div>
+      <div>
+       <h2 class="text-2xl sm:text-3xl font-mono font-bold text-white">
+        JSON (JavaScript Object Notation)
+       </h2>
+       <p class="text-xs font-mono text-gray-400">
+        El est&aacute;ndar universal liviano para el intercambio de datos estructurados
+       </p>
+      </div>
+     </div>
+     <div class="space-y-4 text-sm text-gray-300 leading-relaxed">
+      <h3 class="text-lg font-mono font-bold text-electric-cyan">
+       &iquest;Qu&eacute; es JSON y por qu&eacute; es el est&aacute;ndar web?
+      </h3>
+      <p>
+       <strong>
+        JSON
+       </strong>
+       es un formato de texto independiente del lenguaje utilizado para transmitir y estructurar datos entre clientes (navegadores) y servidores web o APIs RESTful. Es m&aacute;s liviano y f&aacute;cil de leer para humanos que XML.
+      </p>
+      <h3 class="text-lg font-mono font-bold text-electric-cyan pt-2">
+       Estructura B&aacute;sica de Datos
+      </h3>
+      <p class="text-xs">
+       JSON admite tipos de datos primarios:
+       <code class="text-neon-magenta">
+        String
+       </code>
+       (siempre entre comillas dobles),
+       <code class="text-electric-cyan">
+        Number
+       </code>
+       ,
+       <code class="text-acid-yellow">
+        Boolean
+       </code>
+       ,
+       <code class="text-gray-400">
+        null
+       </code>
+       ,
+       <code class="text-neon-green">
+        Array []
+       </code>
+       y
+       <code class="text-white">
+        Object {}
+       </code>
+       .
+      </p>
+      <!--Comparación entre objeto JS y JSON-->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+       <div class="bg-terminal-dark p-4 rounded border border-gray-800 space-y-2">
+        <span class="text-xs font-mono text-yellow-400 font-bold block">
+         // Objeto Literal en JavaScript
+        </span>
+        <pre class="text-xs font-mono text-gray-300"><code><span class="code-keyword">const</span> comision = {
+    id: <span class="code-number">101</span>,
+    modo: <span class="code-string">"Cyber Glow"</span>,
+    activo: <span class="code-keyword">true</span>,
+    precio: <span class="code-number">85</span>
+};</code></pre>
+       </div>
+       <div class="bg-terminal-dark p-4 rounded border border-gray-800 space-y-2">
+        <span class="text-xs font-mono text-neon-magenta font-bold block">
+         // Formato Formateado JSON (String)
+        </span>
+        <pre class="text-xs font-mono text-gray-300"><code>{
+    <span class="code-string">"id"</span>: <span class="code-number">101</span>,
+    <span class="code-string">"modo"</span>: <span class="code-string">"Cyber Glow"</span>,
+    <span class="code-string">"activo"</span>: <span class="code-keyword">true</span>,
+    <span class="code-string">"precio"</span>: <span class="code-number">85</span>
+}</code></pre>
+       </div>
+      </div>
+      <p class="text-xs">
+       <strong>
+        Comunicaci&oacute;n Cliente-Servidor:
+       </strong>
+       En JavaScript se utiliza
+       <code class="text-electric-cyan">
+        JSON.stringify()
+       </code>
+       para convertir objetos JS en cadenas JSON al enviar datos, y
+       <code class="text-electric-cyan">
+        JSON.parse()
+       </code>
+       para reconvertir cadenas JSON recibidas en objetos manipulables.
+      </p>
+     </div>
+     <!--Validador de JSON-->
+     <div class="cyber-glass p-6 rounded-lg border border-electric-cyan/40 space-y-4">
+      <h4 class="font-mono text-xs text-electric-cyan font-bold">
+       [ HERRAMIENTA INTERACTIVA - VALIDADOR &amp; PARSER JSON ]
+      </h4>
+      <p class="text-xs text-gray-300">
+       Prueba parsear la carga util (payload) de una comisi&oacute;n de arte en tiempo real:
+      </p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+       <div>
+        <label class="block text-xs font-mono text-gray-400 mb-1">
+         Entrada Cadenas JSON Raw:
+        </label>
+        <textarea class="w-full bg-deep-space border border-gray-700 rounded p-3 text-xs font-mono text-green-400 focus:border-electric-cyan outline-none" id="json-input" rows="6">{
+  "cliente": "Viper_99",
+  "estilo": "Cyber Glow",
+  "cobertura": "Full Body",
+  "extras": ["Fondo Ne&oacute;n", "Licencia Comercial"]
+}</textarea>
+        <button class="mt-2 px-4 py-2 bg-electric-cyan text-black font-mono font-bold text-xs rounded hover:bg-electric-cyan/80 transition" onclick="parseJsonDemo()">
+         VALIDAR Y PARSEAR JSON
+        </button>
+       </div>
+       <div>
+        <label class="block text-xs font-mono text-gray-400 mb-1">
+         Resultado de Inspecci&oacute;n en Memoria JS:
+        </label>
+        <div class="p-3 bg-terminal-dark border border-gray-800 rounded min-h-[140px] font-mono text-xs text-gray-300" id="json-output">
+         <span class="text-gray-500">
+          // Presiona 'Validar' para ver las propiedades en objeto JS
+         </span>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!--Fuentes consultadas-->
+     <div class="border-t border-gray-800 pt-4 text-xs text-gray-400 font-mono">
+      <strong class="text-gray-300">
+       Fuentes &amp; Bibliograf&iacute;a:
+      </strong>
+      <a class="text-electric-cyan hover:underline ml-2" href="https://www.json.org/json-es.html" rel="noopener" target="_blank">
+       JSON.org Oficial
+      </a>
+      |
+      <a class="text-electric-cyan hover:underline ml-2" href="https://developer.mozilla.org/es/docs/Learn/JavaScript/Objects/JSON" rel="noopener" target="_blank">
+       MDN Gu&iacute;a JSON
+      </a>
+     </div>
+    </div>
+   </section>
+   <!--Sección 06: Hosting y dominios-->
+   <section class="tab-content hidden space-y-10" id="tab-hosting">
+    <div class="cyber-glass p-6 sm:p-8 rounded-xl border border-acid-yellow/30 space-y-6">
+     <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded bg-acid-yellow/20 border border-acid-yellow flex items-center justify-center text-acid-yellow text-3xl font-bold">
+       <i class="fa-solid fa-server">
+       </i>
+      </div>
+      <div>
+       <h2 class="text-2xl sm:text-3xl font-mono font-bold text-white">
+        Web Hosting &amp; Dominios
+       </h2>
+       <p class="text-xs font-mono text-gray-400">
+        Infraestructura y despliegue global para proyectos web en la nube
+       </p>
+      </div>
+     </div>
+     <div class="space-y-4 text-sm text-gray-300 leading-relaxed">
+      <h3 class="text-lg font-mono font-bold text-electric-cyan">
+       &iquest;C&oacute;mo se pone una p&aacute;gina web en Internet?
+      </h3>
+      <p>
+       Para hacer accesible un sitio web a nivel mundial, se requiere almacenar los archivos (HTML, CSS, JS, im&aacute;genes) en un servidor conectado 24/7 (
+       <strong>
+        Web Hosting
+       </strong>
+       ) y asociarlo a un nombre recordable (
+       <strong>
+        Dominio Web
+       </strong>
+       ).
+      </p>
+      <!-- Types of Hosting Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
+       <div class="p-4 rounded bg-deep-space border border-gray-800 space-y-1">
+        <h4 class="font-mono font-bold text-white text-xs">
+         Hosting Compartido
+        </h4>
+        <p class="text-xs text-gray-400">
+         Varios sitios comparten el mismo servidor y recursos CPU/RAM. Econ&oacute;mico pero limitado.
+        </p>
+       </div>
+       <div class="p-4 rounded bg-deep-space border border-gray-800 space-y-1">
+        <h4 class="font-mono font-bold text-white text-xs">
+         Servidores VPS / Nube
+        </h4>
+        <p class="text-xs text-gray-400">
+         Recursos virtuales dedicados y escalables (AWS, Google Cloud, DigitalOcean).
+        </p>
+       </div>
+       <div class="p-4 rounded bg-deep-space border border-electric-cyan/40 space-y-1">
+        <h4 class="font-mono font-bold text-electric-cyan text-xs">
+         Vercel (Jamstack Static)
+        </h4>
+        <p class="text-xs text-gray-400">
+         Plataforma cloud optimizada para frameworks y sitios est&aacute;ticos con despliegue CI/CD autom&aacute;tico desde GitHub.
+        </p>
+       </div>
+      </div>
+      <!-- Domain & TLD concepts -->
+      <h3 class="text-lg font-mono font-bold text-electric-cyan pt-2">
+       Anatom&iacute;a de un Nombre de Dominio
+      </h3>
+      <div class="p-4 rounded bg-deep-space border border-gray-800 font-mono text-xs space-y-2">
+       <div class="text-center text-base font-bold text-white">
+        <span class="text-neon-magenta">
+         app.
+        </span>
+        <span class="text-electric-cyan">
+         cyberartcomisiones
+        </span>
+        <span class="text-acid-yellow">
+         .com
+        </span>
+       </div>
+       <div class="grid grid-cols-3 text-center text-xs text-gray-400 border-t border-gray-800 pt-2">
+        <span>
+         Subdominio
+        </span>
+        <span>
+         Nombre Ra&iacute;z (Domain Name)
+        </span>
+        <span>
+         TLD (Top Level Domain)
+        </span>
+       </div>
+      </div>
+     </div>
+     <!-- Interactive DNS Propagation Flow Visualizer -->
+     <div class="cyber-glass p-6 rounded-lg border border-acid-yellow/40 space-y-4">
+      <h4 class="font-mono text-xs text-acid-yellow font-bold">
+       [ DIAGRAMA INTERACTIVO - FLUJO DE PROPAGACI&Oacute;N Y RESOLUCI&Oacute;N DNS ]
+      </h4>
+      <p class="text-xs text-gray-300">
+       Pasa el cursor o haz clic en los pasos para simular c&oacute;mo un navegador resuelve el dominio web hasta el servidor Vercel:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 font-mono text-xs text-center">
+       <div class="p-3 rounded bg-deep-space border border-electric-cyan cursor-pointer hover:bg-electric-cyan/10" id="dns-step-1" onclick="stepDns(1)">
+        <i class="fa-solid fa-laptop text-electric-cyan text-lg block mb-1">
+        </i>
+        1. Cliente Navegador
+       </div>
+       <div class="p-3 rounded bg-deep-space border border-gray-800 cursor-pointer hover:bg-electric-cyan/10" id="dns-step-2" onclick="stepDns(2)">
+        <i class="fa-solid fa-network-wired text-neon-magenta text-lg block mb-1">
+        </i>
+        2. Resolver DNS ISP
+       </div>
+       <div class="p-3 rounded bg-deep-space border border-gray-800 cursor-pointer hover:bg-electric-cyan/10" id="dns-step-3" onclick="stepDns(3)">
+        <i class="fa-solid fa-sitemap text-acid-yellow text-lg block mb-1">
+        </i>
+        3. Name Servers (NS)
+       </div>
+       <div class="p-3 rounded bg-deep-space border border-gray-800 cursor-pointer hover:bg-electric-cyan/10" id="dns-step-4" onclick="stepDns(4)">
+        <i class="fa-solid fa-cloud text-neon-green text-lg block mb-1">
+        </i>
+        4. Servidor Vercel IP
+       </div>
+      </div>
+      <div class="p-3 rounded bg-terminal-dark border border-gray-800 font-mono text-xs text-green-400" id="dns-explanation">
+       <strong>
+        Paso 1:
+       </strong>
+       El usuario escribe 'cyberartcomisiones.vercel.app' en la barra de direcciones del navegador.
+      </div>
+     </div>
+     <!-- Deployment Steps Summary -->
+     <div class="p-4 rounded bg-deep-space border border-neon-green/30 space-y-2">
+      <h4 class="font-mono font-bold text-neon-green text-xs">
+       <i class="fa-solid fa-rocket">
+       </i>
+       FLUJO DE DESPLIEGUE EN VERCEL VIA GITHUB
+      </h4>
+      <ol class="text-xs text-gray-300 space-y-1 list-decimal list-inside font-mono">
+       <li>
+        Subir el c&oacute;digo fuente del proyecto a un repositorio p&uacute;blico en
+        <strong>
+         GitHub
+        </strong>
+        .
+       </li>
+       <li>
+        Iniciar sesi&oacute;n en
+        <strong>
+         Vercel.com
+        </strong>
+        conectando tu cuenta de GitHub.
+       </li>
+       <li>
+        Importar el repositorio y presionar
+        <code class="text-electric-cyan">
+         Deploy
+        </code>
+        . Vercel genera la URL p&uacute;blica HTTPS instant&aacute;neamente.
+       </li>
+      </ol>
+     </div>
+     <!--Fuentes consultadas-->
+     <div class="border-t border-gray-800 pt-4 text-xs text-gray-400 font-mono">
+      <strong class="text-gray-300">
+       Fuentes &amp; Bibliograf&iacute;a:
+      </strong>
+      <a class="text-electric-cyan hover:underline ml-2" href="https://vercel.com/docs" rel="noopener" target="_blank">
+       Vercel Documentation
+      </a>
+      |
+      <a class="text-electric-cyan hover:underline ml-2" href="https://www.cloudflare.com/learning/dns/what-is-dns/" rel="noopener" target="_blank">
+       Cloudflare DNS Guide
+      </a>
+     </div>
+    </div>
+   </section>
+   <!--Sección 07: CUESTIONARIO WEB INTERACTIVO-->
+   <section class="tab-content hidden space-y-8" id="tab-quiz">
+    <div class="cyber-glass p-6 sm:p-8 rounded-xl border border-acid-yellow/40 space-y-6">
+     <div class="flex items-center justify-between flex-wrap gap-4 border-b border-gray-800 pb-4">
+      <div class="flex items-center gap-3">
+       <i class="fa-solid fa-graduation-cap text-acid-yellow text-3xl">
+       </i>
+       <div>
+        <h2 class="text-2xl sm:text-3xl font-mono font-bold text-white">
+         CUESTIONARIO WEB DE REPASO
+        </h2>
+        <p class="text-xs font-mono text-gray-400">
+         M&oacute;dulo de autoevaluaci&oacute;n interactivo sobre JS, jQuery, JSON y Hosting
+        </p>
+       </div>
+      </div>
+      <div class="px-4 py-2 rounded bg-acid-yellow/10 border border-acid-yellow text-acid-yellow font-mono text-sm font-bold" id="quiz-score-badge">
+       PUNTUACl&Oacute;N:
+       <span id="quiz-score">
+        0
+       </span>
+       / 8
+      </div>
+     </div>
+     <!-- Quiz Container -->
+     <div class="space-y-6" id="quiz-questions-container">
+      <!-- Questions will be rendered dynamically via JavaScript for optimal interactivity -->
+     </div>
+     <!-- Final Quiz Results Card -->
+     <div class="hidden cyber-glass p-6 rounded-xl border border-neon-green text-center space-y-4" id="quiz-result-card">
+      <div class="text-4xl text-neon-green">
+       <i class="fa-solid fa-award">
+       </i>
+      </div>
+      <h3 class="text-2xl font-mono font-bold text-white" id="quiz-grade-title">
+       &iexcl;EVALUACI&Oacute;N COMPLETADA!
+      </h3>
+      <p class="text-sm text-gray-300 font-mono" id="quiz-grade-desc">
+       Has demostrado un conocimiento s&oacute;lido de la infraestructura web.
+      </p>
+      <button class="px-6 py-2.5 rounded bg-acid-yellow text-black font-mono font-bold text-xs hover:bg-acid-yellow/80 transition" onclick="resetQuiz()">
+       <i class="fa-solid fa-rotate-right">
+       </i>
+       REINTENTAR CUESTIONARIO
+      </button>
+     </div>
+    </div>
+   </section>
+
+   <!-- Sección de contacto: los datos se envían al backend propio, no directamente al webhook -->
+   <section class="tab-content hidden space-y-8" id="tab-contact">
+    <div class="cyber-glass rounded-2xl p-6 sm:p-10 border border-electric-cyan/40 max-w-3xl mx-auto">
+     <div class="mb-8">
+      <p class="font-mono text-xs text-neon-magenta mb-2">[ COMMUNICATION CHANNEL // SECURE RELAY ]</p>
+      <h2 class="text-3xl sm:text-4xl font-black text-white uppercase" data-i18n="contact_title">Contacto</h2>
+      <p class="text-gray-300 mt-3" data-i18n="contact_intro">Envíanos un mensaje. Todos los campos son validados antes del envío.</p>
+     </div>
+     <form id="contact-form" class="space-y-5" novalidate>
+      <div>
+       <label for="contact-name" class="block text-sm font-mono text-electric-cyan mb-2" data-i18n="contact_name_label">Nombre *</label>
+       <input id="contact-name" name="name" type="text" autocomplete="name" required maxlength="100" class="w-full rounded-lg border border-electric-cyan/30 bg-black/30 text-white px-4 py-3 focus:outline-none focus:border-electric-cyan" data-i18n-placeholder="contact_name_placeholder" placeholder="Tu nombre" />
+       <p class="text-red-400 text-sm mt-1 hidden" id="contact-name-error" role="alert" data-i18n="contact_name_error">Escribe tu nombre.</p>
+      </div>
+      <div>
+       <label for="contact-account" class="block text-sm font-mono text-electric-cyan mb-2" data-i18n="contact_account_label">Cuenta / correo *</label>
+       <input id="contact-account" name="account" type="text" autocomplete="email" required maxlength="254" class="w-full rounded-lg border border-electric-cyan/30 bg-black/30 text-white px-4 py-3 focus:outline-none focus:border-electric-cyan" data-i18n-placeholder="contact_account_placeholder" placeholder="nombre@dominio.com" />
+       <p class="text-red-400 text-sm mt-1 hidden" id="contact-account-error" role="alert" data-i18n="contact_account_error">Usa el formato nombre@dominio.com (el dominio debe terminar en .com).</p>
+      </div>
+      <div>
+       <div class="flex items-center justify-between gap-3 mb-2">
+        <label for="contact-message" class="block text-sm font-mono text-electric-cyan" data-i18n="contact_message_label">Mensaje *</label>
+        <span class="text-xs font-mono text-gray-400"><span id="contact-message-count">0</span>/500</span>
+       </div>
+       <textarea id="contact-message" name="message" required maxlength="500" rows="5" class="w-full rounded-lg border border-electric-cyan/30 bg-black/30 text-white px-4 py-3 focus:outline-none focus:border-electric-cyan" data-i18n-placeholder="contact_message_placeholder" placeholder="Escribe tu mensaje (máximo 500 caracteres)" ></textarea>
+       <p class="text-red-400 text-sm mt-1 hidden" id="contact-message-error" role="alert" data-i18n="contact_message_error">El mensaje es obligatorio y no puede superar los 500 caracteres.</p>
+      </div>
+      <div id="contact-status" class="hidden rounded-lg border px-4 py-3 text-sm" role="status" aria-live="polite"></div>
+      <button id="contact-submit" type="submit" class="w-full rounded-lg border border-neon-magenta/60 bg-neon-magenta/10 text-neon-magenta hover:bg-neon-magenta/20 font-mono font-bold px-5 py-3 transition">
+       <i class="fa-solid fa-paper-plane mr-2" aria-hidden="true"></i><span data-i18n="contact_submit">ENVIAR MENSAJE</span>
+      </button>
+      <p class="text-xs text-gray-500" data-i18n="contact_privacy">Tu mensaje se enviará a través de nuestro servidor; la URL privada del webhook no se expone en el navegador.</p>
+     </form>
+    </div>
+   </section>
+  </main>
+  <div class="pointer-events-none fixed inset-0 z-50 scanline opacity-20">
+  </div>
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+   <!--Sección 01: INICIO & CARRUSEL CROSSFADE-->
+   <!--Sección 02: PROYECTOS & INTERFAZ MEJORADA-->
+   <!--Sección 03: COTIZADOR INTERACTIVO-->
+   <section class="tab-content hidden space-y-8" id="tab-cotizador">
+    <div class="cyber-glass rounded-2xl p-6 sm:p-8 border border-electric-cyan/40">
+     <h2 class="text-2xl font-mono font-bold text-white mb-4" data-i18n="quote_header">
+      COTIZADOR DE COMISIONES &amp; PROYECTOS WEB
+     </h2>
+     <p class="text-sm text-gray-300 mb-6" data-i18n="quote_desc">
+      Calcula en tiempo real el costo estimado de tu encargo art&iacute;stico o desarrollo web.
+     </p>
+     <div class="row g-4">
+      <div class="col-lg-7 space-y-4">
+       <div>
+        <label class="form-label font-mono text-xs text-electric-cyan" data-i18n="lbl_service">
+         TIPO DE SERVICIO:
+        </label>
+        <select class="form-select bg-dark text-white border-secondary font-mono text-xs" id="service-type" onchange="calculateQuote()">
+         <option value="25">
+          Ilustraci&oacute;n Headshot ($25 USD)
+         </option>
+         <option value="50">
+          Ilustraci&oacute;n Full Body ($50 USD)
+         </option>
+         <option value="120">
+          Dise&ntilde;o Web Completo con Bootstrap ($120 USD)
+         </option>
+        </select>
+       </div>
+       <div>
+        <label class="form-label font-mono text-xs text-electric-cyan" data-i18n="lbl_extras">
+         EXTRAS Y COMPLEMENTOS:
+        </label>
+        <div class="form-check">
+         <input class="form-check-input" id="extra-fast" onchange="calculateQuote()" type="checkbox"/>
+         <label class="form-check-label font-mono text-xs text-gray-300" data-i18n="chk_fast" for="extra-fast">
+          Entrega Express 48h (+$30 USD)
+         </label>
+        </div>
+        <div class="form-check">
+         <input class="form-check-input" id="extra-source" onchange="calculateQuote()" type="checkbox"/>
+         <label class="form-check-label font-mono text-xs text-gray-300" data-i18n="chk_source" for="extra-source">
+          Archivos Fuente Originales (PSD / AI / Repositorio) (+$20 USD)
+         </label>
+        </div>
+       </div>
+      </div>
+      <div class="col-lg-5">
+       <div class="p-4 rounded-xl bg-terminal-dark border border-electric-cyan text-center space-y-3 font-mono">
+        <span class="text-xs text-electric-cyan" data-i18n="lbl_total_est">
+         TOTAL ESTIMADO:
+        </span>
+        <div class="text-3xl font-bold text-acid-yellow" id="quote-total">
+         $25 USD
+        </div>
+        <button class="w-full btn btn-outline-info btn-sm font-mono" data-i18n="btn_save_quote" onclick="alert('Cotizaci&oacute;n guardada exitosamente')">
+         GENERAR TICKET
+        </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!--Sección 04: 15 HERRAMIENTAS GRATUITAS GOOGLE-->
+   <section class="tab-content hidden space-y-8" id="tab-herramientas">
+    <div class="cyber-glass p-6 sm:p-8 rounded-2xl border border-acid-yellow/40 space-y-6">
+     <div>
+      <span class="px-3 py-1 rounded bg-acid-yellow/10 border border-acid-yellow text-acid-yellow font-mono text-xs font-bold" data-i18n="tools_badge">
+       INVESTIGACI&Oacute;N ACAD&Eacute;MICA
+      </span>
+      <h2 class="text-3xl font-mono font-bold text-white mt-2" data-i18n="tools_title">
+       15 Herramientas Gratuitas de Google (Versi&oacute;n Classroom Premium)
+      </h2>
+      <p class="text-sm text-gray-300 mt-1" data-i18n="tools_subtitle">
+       Google ofrece potentes herramientas sin coste para creadores, estudiantes y desarrolladores que en plataformas corporativas o Google Classroom suelen requerir licencias premium o complementos avanzados.
+      </p>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 font-mono text-xs">
+      <div class="p-4 rounded-lg bg-deep-space border border-gray-800 space-y-1">
+       <strong class="text-electric-cyan block text-sm">
+        1. Google Colab
+       </strong>
+       <p class="text-gray-400">
+        Entorno Jupyter Notebook en la nube con GPU gratuita para Python e Inteligencia Artificial.
+       </p>
+      </div>
+      <div class="p-4 rounded-lg bg-deep-space border border-gray-800 space-y-1">
+       <strong class="text-electric-cyan block text-sm">
+        2. Google Sites
+       </strong>
+       <p class="text-gray-400">
+        Creador de sitios web responsivos sin c&oacute;digo, integrado directamente con Google Drive.
+       </p>
+      </div>
+      <div class="p-4 rounded-lg bg-deep-space border border-gray-800 space-y-1">
+       <strong class="text-electric-cyan block text-sm">
+        3. Google Looker Studio
+       </strong>
+       <p class="text-gray-400">
+        Herramienta de visualizaci&oacute;n de datos y dashboards interactivos en tiempo real.
+       </p>
+      </div>
+      <div class="p-4 rounded-lg bg-deep-space border border-gray-800 space-y-1">
+       <strong class="text-electric-cyan block text-sm">
+        4. Google AppSheet (B&aacute;sico)
+       </strong>
+       <p class="text-gray-400">
+        Desarrollo de aplicaciones m&oacute;viles sin c&oacute;digo conectadas a hojas de c&aacute;lculo.
+       </p>
+      </div>
+      <div class="p-4 rounded-lg bg-deep-space border border-gray-800 space-y-1">
+       <strong class="text-electric-cyan block text-sm">
+        5. Google Earth Pro (Desktop)
+       </strong>
+       <p class="text-gray-400">
+        Software geoespacial avanzado para mediciones, capas personalizadas y visualizaci&oacute;n 3D.
+       </p>
+      </div>
+      <div class="p-4 rounded-lg bg-deep-space border border-gray-800 space-y-1">
+       <strong class="text-electric-cyan block text-sm">
+        6. Google Forms + Apps Script
+       </strong>
+       <p class="text-gray-400">
+        Creaci&oacute;n de formularios automatizados con l&oacute;gica de programaci&oacute;n personalizada.
+       </p>
+      </div>
+      <div class="p-4 rounded-lg bg-deep-space border border-gray-800 space-y-1">
+       <strong class="text-electric-cyan block text-sm">
+        7. Google Fonts &amp; Icons
+       </strong>
+       <p class="text-gray-400">
+        Librer&iacute;a abierta masiva de tipograf&iacute;as y vectores optimizados para la web.
+       </p>
+      </div>
+      <div class="p-4 rounded-lg bg-deep-space border border-gray-800 space-y-1">
+       <strong class="text-electric-cyan block text-sm">
+        8. Google Keep &amp; Drawings
+       </strong>
+       <p class="text-gray-400">
+        Notas r&aacute;pidas y diagramaci&oacute;n vectorial b&aacute;sica para lluvia de ideas.
+       </p>
+      </div>
+      <div class="p-4 rounded-lg bg-deep-space border border-gray-800 space-y-1">
+       <strong class="text-electric-cyan block text-sm">
+        9. Firebase (Spark Plan)
+       </strong>
+       <p class="text-gray-400">
+        Backend como servicio gratuito para autenticaci&oacute;n, bases de datos Firestore y hosting.
+       </p>
+      </div>
+      <div class="p-4 rounded-lg bg-deep-space border border-gray-800 space-y-1">
+       <strong class="text-electric-cyan block text-sm">
+        10. Google Tag Manager
+       </strong>
+       <p class="text-gray-400">
+        Administrador de etiquetas web para marketing y an&aacute;lisis sin modificar el c&oacute;digo fuente.
+       </p>
+      </div>
+      <div class="p-4 rounded-lg bg-deep-space border border-gray-800 space-y-1">
+       <strong class="text-electric-cyan block text-sm">
+        11. Google Analytics (GA4)
+       </strong>
+       <p class="text-gray-400">
+        Medici&oacute;n de tr&aacute;fico web y comportamiento de usuarios con eventos avanzados.
+       </p>
+      </div>
+      <div class="p-4 rounded-lg bg-deep-space border border-gray-800 space-y-1">
+       <strong class="text-electric-cyan block text-sm">
+        12. Google Scholar (Acad&eacute;mico)
+       </strong>
+       <p class="text-gray-400">
+        Buscador especializado de literatura cient&iacute;fica, tesis y patentes verificadas.
+       </p>
+      </div>
+      <div class="p-4 rounded-lg bg-deep-space border border-gray-800 space-y-1">
+       <strong class="text-electric-cyan block text-sm">
+        13. Google Podcasts / RSS Manager
+       </strong>
+       <p class="text-gray-400">
+        Distribuci&oacute;n de contenido de audio y transmisiones educativas.
+       </p>
+      </div>
+      <div class="p-4 rounded-lg bg-deep-space border border-gray-800 space-y-1">
+       <strong class="text-electric-cyan block text-sm">
+        14. Google Jamboard / Canvas
+       </strong>
+       <p class="text-gray-400">
+        Pizarra interactiva de colaboraci&oacute;n en vivo para lluvia de ideas en equipo.
+       </p>
+      </div>
+      <div class="p-4 rounded-lg bg-deep-space border border-gray-800 space-y-1">
+       <strong class="text-electric-cyan block text-sm">
+        15. Google Developers Console
+       </strong>
+       <p class="text-gray-400">
+        Gesti&oacute;n de APIs de Google, credenciales OAuth y servicios Cloud gratuitos.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <!-- Footer Section -->
+  <!-- MAIN INTERACTIVE SCRIPT -->
+  <script>
+   /* ------------------------------------------------------------------ */
+        /* 1. SOUND FX ENGINE (Web Audio API - Retro Synth Clicks)            */
+        /* ------------------------------------------------------------------ */
+        let audioEnabled = true;
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+
+        function playSynthClick(freq = 440, type = 'sine', duration = 0.05) {
+            if (!audioEnabled) return;
+            try {
+                if (!audioCtx) audioCtx = new AudioCtx();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch (e) {
+                // Audio context suppressed until user gesture
+            }
+        }
+
+        function toggleAudio() {
+            audioEnabled = !audioEnabled;
+            const icon = document.getElementById('sound-icon');
+            const btn = document.getElementById('sound-btn');
+            if (audioEnabled) {
+                icon.className = 'fa-solid fa-volume-high';
+                btn.classList.remove('border-red-500/40', 'text-red-400');
+                btn.classList.add('border-electric-cyan/40', 'text-electric-cyan');
+                playSynthClick(880, 'square');
+            } else {
+                icon.className = 'fa-solid fa-volume-xmark';
+                btn.classList.remove('border-electric-cyan/40', 'text-electric-cyan');
+                btn.classList.add('border-red-500/40', 'text-red-400');
+            }
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* 2. SPA TAB SWITCHING NAVIGATION SYSTEM                             */
+        /* ------------------------------------------------------------------ */
+        function switchTab(tabId) {
+    if (typeof playSynthClick === 'function') playSynthClick(587, 'triangle');
+    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
+    const selectedTab = document.getElementById(`tab-${tabId}`);
+    if (selectedTab) selectedTab.classList.remove('hidden');
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('text-electric-cyan', 'border-b-2', 'border-electric-cyan', 'bg-electric-cyan/10', 'bg-electric-cyan/15');
+        btn.classList.add('text-gray-400');
+    });
+    const activeBtn = document.getElementById(`nav-${tabId}`);
+    if (activeBtn) {
+        activeBtn.classList.remove('text-gray-400');
+        activeBtn.classList.add('text-electric-cyan', 'border-b-2', 'border-electric-cyan', 'bg-electric-cyan/10');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            playSynthClick(440, 'sine');
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* 3. INTERACTIVE PRICE CALCULATOR & TICKET GENERATOR                 */
+        /* ------------------------------------------------------------------ */
+        let currentCalcState = {
+            mode: 'rubber', // rubber ($25), anime ($40), cyber ($60)
+            format: 'headshot', // headshot ($0), half (+$15), full (+$30)
+        };
+
+        const MODE_PRICES = { rubber: 25, anime: 40, cyber: 60 };
+        const FORMAT_PRICES = { headshot: 0, half: 15, full: 30 };
+        const MODE_NAMES = { rubber: 'Rubber Hose (Retro 30s)', anime: 'Anime Clásico (90s)', cyber: 'Cyber Glow' };
+        const FORMAT_NAMES = { headshot: 'Headshot / Avatar', half: 'Half Body', full: 'Full Body' };
+
+        function updateCalc(type, val) {
+            playSynthClick(784, 'sine');
+            currentCalcState[type] = val;
+
+            // Highlight buttons
+            if (type === 'mode') {
+                document.querySelectorAll('.calc-mode-btn').forEach(b => {
+                    b.className = 'calc-mode-btn p-3 rounded border border-gray-700 bg-deep-space text-gray-400 font-mono text-xs';
+                });
+                const active = document.getElementById(`btn-mode-${val}`);
+                active.className = 'calc-mode-btn p-3 rounded border border-electric-cyan bg-electric-cyan/20 text-white font-bold font-mono text-xs';
+            }
+
+            if (type === 'format') {
+                document.querySelectorAll('.calc-format-btn').forEach(b => {
+                    b.className = 'calc-format-btn p-3 rounded border border-gray-700 bg-deep-space text-gray-400 font-mono text-xs';
+                });
+                const active = document.getElementById(`btn-format-${val}`);
+                active.className = 'calc-format-btn p-3 rounded border border-neon-magenta bg-neon-magenta/20 text-white font-bold font-mono text-xs';
+            }
+
+            calculateTotal();
+        }
+
+        function selectModeInCalc(modeKey) {
+            switchTab('modos');
+            updateCalc('mode', modeKey);
+            document.getElementById('calculator-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function calculateTotal() {
+            let basePrice = MODE_PRICES[currentCalcState.mode] + FORMAT_PRICES[currentCalcState.format];
+            
+            const hasBg = document.getElementById('extra-bg').checked;
+            const hasChar = document.getElementById('extra-char').checked;
+            const hasComm = document.getElementById('extra-commercial').checked;
+
+            let total = basePrice;
+            if (hasBg) total += 25;
+            if (hasChar) total += Math.round(basePrice * 0.7);
+            if (hasComm) total += 40;
+
+            document.getElementById('total-price').textContent = `$${total} USD`;
+            updateTicketText(total);
+        }
+
+        function updateTicketText(totalVal = 25) {
+            const nameInput = document.getElementById('client-name').value.trim() || 'Anon';
+            const hasBg = document.getElementById('extra-bg').checked ? 'Fondo Neón (+$25)' : null;
+            const hasChar = document.getElementById('extra-char').checked ? 'Personaje Extra (+70%)' : null;
+            const hasComm = document.getElementById('extra-commercial').checked ? 'Licencia Comercial (+$40)' : null;
+
+            const extrasList = [hasBg, hasChar, hasComm].filter(Boolean).join(', ') || 'Ninguno';
+
+            const ticketContent = `[ CYBER ART COMMISSIONS TICKET ]
+• Cliente / Nickname: ${nameInput}
+• Modo Seleccionado: ${MODE_NAMES[currentCalcState.mode]}
+• Formato Cobertura: ${FORMAT_NAMES[currentCalcState.format]}
+• Extras Incluidos: ${extrasList}
+• Total Estimado: $${totalVal} USD
+• Estado Ticket: LISTO PARA ENVIAR`;
+
+            document.getElementById('ticket-preview').textContent = ticketContent;
+        }
+
+        function copyTicket() {
+            playSynthClick(1046, 'square');
+            const textToCopy = document.getElementById('ticket-preview').textContent;
+            
+            // Clipboard fallback as specified
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                const notif = document.getElementById('copy-notification');
+                notif.classList.remove('hidden');
+                setTimeout(() => notif.classList.add('hidden'), 3000);
+            } catch (err) {
+                console.error('Error al copiar ticket', err);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* 4. JAVASCRIPT & JQUERY INTERACTIVE DEMOS                           */
+        /* ------------------------------------------------------------------ */
+        let jsCount = 0;
+        function runJsDemo() {
+            playSynthClick(659, 'sawtooth');
+            jsCount++;
+            const display = document.getElementById('js-demo-counter');
+            display.textContent = `Cargas Neón: ${jsCount}`;
+            display.classList.add('scale-110');
+            setTimeout(() => display.classList.remove('scale-110'), 150);
+        }
+
+        // jQuery events on DOM ready
+        $(document).ready(function() {
+            $('#jq-fade-btn').on('click', function() {
+                playSynthClick(523, 'sine');
+                $('#jq-target-box').fadeToggle(300);
+            });
+
+            $('#jq-slide-btn').on('click', function() {
+                playSynthClick(698, 'sine');
+                $('#jq-target-box').slideToggle(300);
+            });
+        });
+
+        /* ------------------------------------------------------------------ */
+        /* 5. JSON PARSER DEMO TOOL                                          */
+        /* ------------------------------------------------------------------ */
+        function parseJsonDemo() {
+            playSynthClick(880, 'sine');
+            const inputVal = document.getElementById('json-input').value;
+            const outputDiv = document.getElementById('json-output');
+
+            try {
+                const parsedObj = JSON.parse(inputVal);
+                let html = `<span class="text-neon-green font-bold">✓ JSON VÁLIDO PARSEADO EN MEMORIA:</span><br><br>`;
+                for (let key in parsedObj) {
+                    html += `<span class="text-electric-cyan">${key}</span>: <span class="text-acid-yellow">${JSON.stringify(parsedObj[key])}</span><br>`;
+                }
+                outputDiv.innerHTML = html;
+            } catch (err) {
+                outputDiv.innerHTML = `<span class="text-red-400 font-bold">✗ ERROR DE SINTAXIS JSON:</span><br><span class="text-gray-400">${err.message}</span>`;
+            }
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* 6. DNS PROPAGATION FLOW VISUALIZER                                 */
+        /* ------------------------------------------------------------------ */
+        const DNS_STEPS = {
+            1: "<strong>Paso 1:</strong> El usuario escribe 'cyberartcomisiones.vercel.app' en el navegador. La solicitud verifica el caché local.",
+            2: "<strong>Paso 2:</strong> El ISP (Proveedor de Internet) consulta el Servidor DNS Recursivo para traducir el dominio a IP.",
+            3: "<strong>Paso 3:</strong> Los Servidores Raíz e IP de NameServers de Vercel responden con el registro A/CNAME oficial.",
+            4: "<strong>Paso 4:</strong> La dirección IP del Servidor CDN de Vercel es retornada y la web responde en milisegundos."
+        };
+
+        function stepDns(stepNum) {
+            playSynthClick(400 + (stepNum * 100), 'triangle');
+            document.getElementById('dns-explanation').innerHTML = DNS_STEPS[stepNum];
+
+            for (let i = 1; i <= 4; i++) {
+                const el = document.getElementById(`dns-step-${i}`);
+                if (i === stepNum) {
+                    el.className = 'p-3 rounded bg-electric-cyan/20 border border-electric-cyan text-white cursor-pointer font-bold';
+                } else {
+                    el.className = 'p-3 rounded bg-deep-space border border-gray-800 text-gray-400 cursor-pointer hover:bg-electric-cyan/10';
+                }
+            }
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* 7. CUESTIONARIO INTERACTIVO WEB ENGINE                             */
+        /* ------------------------------------------------------------------ */
+        const QUIZ_QUESTIONS = [
+            {
+                q: "1. ¿Cuál es el rol principal de JavaScript en la tríada del desarrollo web frente a HTML y CSS?",
+                options: [
+                    "A) Definir la estructura y etiquetas semánticas de la página.",
+                    "B) Proporcionar dinamismo, lógica de programación y manejo de eventos.",
+                    "C) Aplicar estilos visuales neón y tipografías responsive.",
+                    "D) Almacenar la base de datos de manera física en el servidor."
+                ],
+                correct: 1,
+                explanation: "JavaScript se encarga del comportamiento y la lógica interactiva del cliente."
+            },
+            {
+                q: "2. ¿Cómo se declara una variable constante inmutable en JS moderno (ES6)?",
+                options: ["A) var", "B) let", "C) const", "D) define"],
+                correct: 2,
+                explanation: "'const' permite crear variables cuyo identificador no puede ser reasignado."
+            },
+            {
+                q: "3. ¿Por qué nació históricamente la librería jQuery?",
+                options: [
+                    "A) Para reemplazar completamente a HTML en los servidores.",
+                    "B) Para simplificar la sintaxis del DOM y resolver inconsistencias entre navegadores.",
+                    "C) Para diseñar interfaces en 3D con WebGL.",
+                    "D) Para enviar correos electrónicos sin necesidad de servidor."
+                ],
+                correct: 1,
+                explanation: "jQuery abstrajo las diferencias de compatibilidad entre navegadores como IE y Firefox."
+            },
+            {
+                q: "4. ¿Cuál es la sintaxis selector básica de jQuery?",
+                options: ["A) select('selector')", "B) $('selector').accion()", "C) DOM.get('selector')", "D) #selector.run()"],
+                correct: 1,
+                explanation: "El símbolo '$' es el caracter principal para seleccionar nodos en jQuery."
+            },
+            {
+                q: "5. En JSON, ¿cuál es una regla obligatoria referente a las claves (keys)?",
+                options: [
+                    "A) No pueden contener números.",
+                    "B) Deben ir siempre encerradas entre comillas dobles (\"\").",
+                    "C) Deben escribirse en mayúsculas sostenidas.",
+                    "D) Deben ser variables globales de JavaScript."
+                ],
+                correct: 1,
+                explanation: "En la especificación JSON estricta, todas las claves deben usar comillas dobles."
+            },
+            {
+                q: "6. ¿Qué función nativa de JavaScript convierte un Objeto en una cadena formateada JSON?",
+                options: ["A) JSON.parse()", "B) JSON.stringify()", "C) Object.toJSON()", "D) String.fromJSON()"],
+                correct: 1,
+                explanation: "JSON.stringify() serializa objetos en cadenas de texto JSON."
+            },
+            {
+                q: "7. ¿Qué tipo de plataforma de despliegue es Vercel para proyectos web?",
+                options: [
+                    "A) Un servidor de base de datos SQL relacional.",
+                    "B) Una plataforma Cloud optimizada para hosting estático Jamstack y CI/CD desde GitHub.",
+                    "C) Un registrador privado de nombres de dominio .com únicamente.",
+                    "D) Un editor de imágenes cibernéticas en la nube."
+                ],
+                correct: 1,
+                explanation: "Vercel permite desplegar sitios estáticos y de frontend directamente sincronizados con GitHub."
+            },
+            {
+                q: "8. ¿Qué significa TLD en el contexto de un Nombre de Dominio Web?",
+                options: [
+                    "A) Technical Level Data",
+                    "B) Top-Level Domain (Dominio de Nivel Superior como .com, .net, .org)",
+                    "C) Terminal Logic Display",
+                    "D) Transfer Layer Device"
+                ],
+                correct: 1,
+                explanation: "TLD es la extensión final de un nombre de dominio (.com, .net, .app, etc.)."
+            }
+        ];
+
+        let userAnswers = {};
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-questions-container');
+            container.innerHTML = '';
+
+            QUIZ_QUESTIONS.forEach((qObj, qIdx) => {
+                const card = document.createElement('div');
+                card.className = 'cyber-glass p-5 rounded-lg border border-gray-800 space-y-3';
+                card.id = `q-card-${qIdx}`;
+
+                let optionsHtml = '';
+                qObj.options.forEach((opt, optIdx) => {
+                    optionsHtml += `
+                        <button onclick="selectQuizOption(${qIdx}, ${optIdx})" id="q-opt-${qIdx}-${optIdx}" class="q-opt-btn w-full text-left p-3 rounded bg-deep-space border border-gray-800 hover:border-electric-cyan font-mono text-xs text-gray-300 transition">
+                            ${opt}
+                        </button>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div class="font-mono font-bold text-sm text-white">${qObj.q}</div>
+                    <div class="space-y-2">${optionsHtml}</div>
+                    <div id="q-feedback-${qIdx}" class="hidden p-3 rounded font-mono text-xs mt-2"></div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function selectQuizOption(qIdx, optIdx) {
+            if (userAnswers[qIdx] !== undefined) return; // Prevent changing answer
+
+            playSynthClick(700, 'sine');
+            userAnswers[qIdx] = optIdx;
+
+            const qObj = QUIZ_QUESTIONS[qIdx];
+            const feedbackDiv = document.getElementById(`q-feedback-${qIdx}`);
+            feedbackDiv.classList.remove('hidden');
+
+            // Disable all options for this question
+            const card = document.getElementById(`q-card-${qIdx}`);
+            const buttons = card.querySelectorAll('.q-opt-btn');
+
+            buttons.forEach((btn, idx) => {
+                btn.onclick = null; // remove handler
+                if (idx === qObj.correct) {
+                    btn.className = 'q-opt-btn w-full text-left p-3 rounded bg-neon-green/20 border border-neon-green font-mono text-xs text-white font-bold';
+                } else if (idx === optIdx && optIdx !== qObj.correct) {
+                    btn.className = 'q-opt-btn w-full text-left p-3 rounded bg-red-500/20 border border-red-500 font-mono text-xs text-red-300';
+                } else {
+                    btn.className = 'q-opt-btn w-full text-left p-3 rounded bg-deep-space/50 border border-gray-800 font-mono text-xs text-gray-600';
+                }
+            });
+
+            if (optIdx === qObj.correct) {
+                feedbackDiv.className = 'p-3 rounded bg-neon-green/10 border border-neon-green text-neon-green font-mono text-xs';
+                feedbackDiv.innerHTML = `<strong>¡CORRECTO!</strong> ${qObj.explanation}`;
+            } else {
+                feedbackDiv.className = 'p-3 rounded bg-red-500/10 border border-red-500 text-red-400 font-mono text-xs';
+                feedbackDiv.innerHTML = `<strong>INCORRECTO.</strong> ${qObj.explanation}`;
+            }
+
+            updateScore();
+        }
+
+        function updateScore() {
+            let score = 0;
+            const answeredCount = Object.keys(userAnswers).length;
+
+            for (let qIdx in userAnswers) {
+                if (userAnswers[qIdx] === QUIZ_QUESTIONS[qIdx].correct) {
+                    score++;
+                }
+            }
+
+            document.getElementById('quiz-score').textContent = score;
+
+            if (answeredCount === QUIZ_QUESTIONS.length) {
+                const resultCard = document.getElementById('quiz-result-card');
+                resultCard.classList.remove('hidden');
+
+                const title = document.getElementById('quiz-grade-title');
+                const desc = document.getElementById('quiz-grade-desc');
+
+                if (score >= 7) {
+                    title.textContent = "GRADE S // CYBER ARCHITECT";
+                    desc.textContent = "¡Excelente! Has superado la autoevaluación con honores cibernéticos.";
+                } else if (score >= 5) {
+                    title.textContent = "GRADE A // WEB RUNNER";
+                    desc.textContent = "Buen trabajo. Tienes un dominio sólido de los conceptos clave.";
+                } else {
+                    title.textContent = "GRADE C // REVISIÓN REQUERIDA";
+                    desc.textContent = "Te sugerimos repasar las secciones de JS, jQuery y JSON en el menú superior.";
+                }
+
+                resultCard.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function resetQuiz() {
+            playSynthClick(440, 'square');
+            userAnswers = {};
+            document.getElementById('quiz-score').textContent = '0';
+            document.getElementById('quiz-result-card').classList.add('hidden');
+            renderQuiz();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* 8. APPLICATION INITIALIZATION                                      */
+        /* ------------------------------------------------------------------ */
+        window.onload = function() {
+            // Initial calculations
+            calculateTotal();
+            renderQuiz();
+            
+            // Console Terminal Easter Egg
+            console.log("%c CYBER ART COMMISSIONS // TERMINAL ONLINE ", "background: #0A0012; color: #00F0FF; font-size: 14px; font-weight: bold; border: 1px solid #00F0FF; padding: 4px;");
+        };
+  </script>
+  <footer class="cyber-glass border-t border-electric-cyan/20 py-8 relative z-10 text-xs font-mono text-gray-400 mt-auto">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+    <div>
+     <span class="text-white font-bold">
+      CYBER ART COMMISSIONS
+     </span>
+     &copy; 2026 // TERMINAL DE ENCARGOS
+     <p class="text-gray-500 text-[10px]">
+      Proyecto Desarrollado con HTML5, Tailwind CSS, JS Vanilla &amp; jQuery
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script>
+   // i18n local: carga los diccionarios JSON del proyecto, sin servicios de traducción externos.
+        let currentLanguage = 'es';
+        let translations = {};
+
+        async function loadLanguage(language) {
+            const selectedLanguage = language === 'en' ? 'en' : 'es';
+            try {
+                const response = await fetch(`./locales/${selectedLanguage}.json`, { cache: 'no-cache' });
+                if (!response.ok) throw new Error(`No se pudo cargar locales/${selectedLanguage}.json`);
+                translations = await response.json();
+                currentLanguage = selectedLanguage;
+                document.documentElement.lang = selectedLanguage;
+                document.title = translations.title || 'CYBER ART COMMISSIONS';
+                document.querySelectorAll('[data-i18n]').forEach((element) => {
+                    const key = element.dataset.i18n;
+                    if (!Object.prototype.hasOwnProperty.call(translations, key)) return;
+                    const value = translations[key];
+                    if (key === 'hero_title') {
+                        const accent = element.querySelector('span');
+                        const parts = value.split('|');
+                        if (accent) {
+                            element.childNodes[0].textContent = parts[0] || '';
+                            accent.textContent = parts[1] || '';
+                        } else element.textContent = value.replace('|', ' ');
+                        return;
+                    }
+                    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+                    const nodes = [];
+                    while (walker.nextNode()) if (walker.currentNode.nodeValue.trim()) nodes.push(walker.currentNode);
+                    if (nodes.length) nodes[nodes.length - 1].nodeValue = value;
+                    else element.textContent = value;
+                });
+                document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
+                    const key = element.dataset.i18nPlaceholder;
+                    if (Object.prototype.hasOwnProperty.call(translations, key)) element.placeholder = translations[key];
+                });
+                const button = document.getElementById('language-toggle');
+                if (button) {
+                    button.textContent = selectedLanguage === 'es' ? 'EN' : 'ES';
+                    button.title = selectedLanguage === 'es' ? 'Switch to English' : 'Cambiar a español';
+                    button.setAttribute('aria-label', button.title);
+                }
+                try { localStorage.setItem('cyberArtLanguage', selectedLanguage); } catch (error) {}
+                return true;
+            } catch (error) {
+                console.error('Error al cargar las traducciones locales:', error);
+                return false;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            let initialLanguage = 'es';
+            try {
+                const saved = localStorage.getItem('cyberArtLanguage');
+                if (saved === 'es' || saved === 'en') initialLanguage = saved;
+            } catch (error) {}
+            await loadLanguage(initialLanguage);
+            document.getElementById('language-toggle')?.addEventListener('click', () => {
+                loadLanguage(currentLanguage === 'es' ? 'en' : 'es');
+            });
+        });
+
+        function applyTheme(theme) {
+            const isLight = theme === 'light';
+            document.documentElement.classList.toggle('light-mode', isLight);
+            document.body.classList.toggle('light-mode', isLight);
+            document.documentElement.classList.toggle('dark', !isLight);
+            const icon = document.getElementById('theme-icon');
+            const label = document.getElementById('theme-text');
+            const button = document.getElementById('theme-toggle');
+            if (icon) icon.className = isLight ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+            if (label) label.textContent = isLight ? 'LIGHT' : 'DARK';
+            if (button) {
+                const actionLabel = isLight ? 'Activar modo oscuro' : 'Activar modo claro';
+                button.setAttribute('aria-label', actionLabel);
+                button.title = actionLabel;
+            }
+        }
+
+        function toggleTheme() {
+            const currentlyLight = document.documentElement.classList.contains('light-mode');
+            const nextTheme = currentlyLight ? 'dark' : 'light';
+            applyTheme(nextTheme);
+            try { localStorage.setItem('cyberArtTheme', nextTheme); } catch (error) {
+                console.warn('No se pudo guardar la preferencia de tema.', error);
+            }
+        }
+
+        // Restore the saved theme before the user interacts with the page.
+        (function initializeTheme() {
+            let savedTheme = 'dark';
+            try {
+                const saved = localStorage.getItem('cyberArtTheme');
+                if (saved === 'light' || saved === 'dark') savedTheme = saved;
+            } catch (error) {}
+            document.documentElement.classList.toggle('light-mode', savedTheme === 'light');
+            document.documentElement.classList.toggle('dark', savedTheme !== 'light');
+            document.addEventListener('DOMContentLoaded', () => applyTheme(savedTheme), { once: true });
+        })();
+
+        function switchTab(tabId) {
+    if (typeof playSynthClick === 'function') playSynthClick(587, 'triangle');
+    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
+    const selectedTab = document.getElementById(`tab-${tabId}`);
+    if (selectedTab) selectedTab.classList.remove('hidden');
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('text-electric-cyan', 'border-b-2', 'border-electric-cyan', 'bg-electric-cyan/10', 'bg-electric-cyan/15');
+        btn.classList.add('text-gray-400');
+    });
+    const activeBtn = document.getElementById(`nav-${tabId}`);
+    if (activeBtn) {
+        activeBtn.classList.remove('text-gray-400');
+        activeBtn.classList.add('text-electric-cyan', 'border-b-2', 'border-electric-cyan', 'bg-electric-cyan/10');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+        function calculateQuote() {
+            const servicePrice = parseFloat(document.getElementById('service-type').value);
+            const extraFast = document.getElementById('extra-fast').checked ? 30 : 0;
+            const extraSource = document.getElementById('extra-source').checked ? 20 : 0;
+            const total = servicePrice + extraFast + extraSource;
+            document.getElementById('quote-total').textContent = `$${total} USD`;
+        }
+  </script>
+
+  <script>
+   // Formulario de contacto: validación cliente + envío seguro al backend local.
+   (() => {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    const nameInput = document.getElementById('contact-name');
+    const accountInput = document.getElementById('contact-account');
+    const messageInput = document.getElementById('contact-message');
+    const submitButton = document.getElementById('contact-submit');
+    const statusBox = document.getElementById('contact-status');
+    const emailPattern = /^[^\s@]+@[\w-]+\.com$/i;
+
+    function showError(id, show) {
+     const el = document.getElementById(id);
+     if (el) el.classList.toggle('hidden', !show);
+    }
+    function setStatus(message, success) {
+     statusBox.textContent = message;
+     statusBox.classList.remove('hidden', 'border-red-400/50', 'text-red-300', 'border-neon-green/50', 'text-neon-green');
+     statusBox.classList.add(success ? 'border-neon-green/50' : 'border-red-400/50', success ? 'text-neon-green' : 'text-red-300');
+    }
+    function validateForm() {
+     const name = nameInput.value.trim();
+     const account = accountInput.value.trim();
+     const message = messageInput.value.trim();
+     const nameOk = name.length > 0;
+     const accountOk = emailPattern.test(account);
+     const messageOk = message.length > 0 && messageInput.value.length <= 500;
+     showError('contact-name-error', !nameOk);
+     showError('contact-account-error', !accountOk);
+     showError('contact-message-error', !messageOk);
+     nameInput.setAttribute('aria-invalid', String(!nameOk));
+     accountInput.setAttribute('aria-invalid', String(!accountOk));
+     messageInput.setAttribute('aria-invalid', String(!messageOk));
+     return nameOk && accountOk && messageOk;
+    }
+    messageInput.addEventListener('input', () => {
+     document.getElementById('contact-message-count').textContent = String(messageInput.value.length);
+     if (messageInput.value.length > 500) showError('contact-message-error', true);
+    });
+    [nameInput, accountInput, messageInput].forEach(input => input.addEventListener('input', () => {
+     if (!statusBox.classList.contains('hidden')) statusBox.classList.add('hidden');
+    }));
+    form.addEventListener('submit', async (event) => {
+     event.preventDefault();
+     if (!validateForm()) {
+      const firstInvalid = form.querySelector('[aria-invalid="true"]');
+      firstInvalid?.focus();
+      return;
+     }
+     submitButton.disabled = true;
+     submitButton.classList.add('opacity-60', 'cursor-not-allowed');
+     const originalText = submitButton.querySelector('span').textContent;
+     submitButton.querySelector('span').textContent = currentLanguage === 'en' ? 'SENDING…' : 'ENVIANDO…';
+     try {
+      const response = await fetch('/api/contact', {
+       method: 'POST',
+       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+       body: JSON.stringify({ name: nameInput.value.trim(), account: accountInput.value.trim(), message: messageInput.value.trim() })
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.error || (currentLanguage === 'en' ? 'Could not send your message.' : 'No se pudo enviar el mensaje.'));
+      setStatus(currentLanguage === 'en' ? 'Message sent successfully. Thank you!' : 'Mensaje enviado correctamente. ¡Gracias!', true);
+      form.reset();
+      document.getElementById('contact-message-count').textContent = '0';
+      ['contact-name-error', 'contact-account-error', 'contact-message-error'].forEach(id => showError(id, false));
+      [nameInput, accountInput, messageInput].forEach(input => input.setAttribute('aria-invalid', 'false'));
+     } catch (error) {
+      setStatus(error.message || (currentLanguage === 'en' ? 'Network error. Try again.' : 'Error de conexión. Inténtalo de nuevo.'), false);
+     } finally {
+      submitButton.disabled = false;
+      submitButton.classList.remove('opacity-60', 'cursor-not-allowed');
+      submitButton.querySelector('span').textContent = originalText;
+     }
+    });
+   })();
+  </script>
+ </body>
+</html>
